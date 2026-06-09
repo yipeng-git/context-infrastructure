@@ -1,0 +1,12 @@
+# corrections.yaml
+# 只记录人工确认或高确定性的局部修正。raw JSONL 不会被改动。
+#
+# 示例：
+# corrections:
+#   - type: speaker_remap
+#     start: "01:09:13"
+#     end: "01:12:14"
+#     from: speaker_01
+#     to: speaker_00
+#     reason: diarization drift
+corrections: []

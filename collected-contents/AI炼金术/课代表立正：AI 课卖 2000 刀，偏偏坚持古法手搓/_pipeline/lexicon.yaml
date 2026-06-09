@@ -1,0 +1,32 @@
+# lexicon.yaml
+# 播客级术语表。这里的替换只作用于派生文本，不修改 transcript_raw.jsonl。
+replacements:
+  chargept: ChatGPT
+  cloudcode: Claude Code
+  达疑: 答疑
+  货客: 获客
+  潜移茫化: 潜移默化
+  AI链金术: AI炼金术
+  XJPT: ChatGPT
+  xgbt: ChatGPT
+  拆GPG: ChatGPT
+  GPG: ChatGPT
+  投讯: 腾讯
+  同讯: 腾讯
+  Stasic: Statsig
+  卖客: 卖课
+  麦克尔: 卖课
+  麦克: 卖课
+  鸦哥: 亚哥
+  鸭哥: 亚哥
+  雅哥: 亚哥
+  压割: 亚哥
+  超线线: 超线性
+  REG: RAG
+  Friendwork: Framework
+  核尔: 核心用户
+  manset: mindset
+  cursive: Cursor
+  cloud code: Claude Code
+  getup: GitHub
+  变程: 编程

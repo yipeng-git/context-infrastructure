@@ -12,7 +12,7 @@
 - 类型: Workflow Draft
 - 适用场景: 小宇宙播客下载、ASR 转写、QA 修正、`mindmap.md` 提炼
 - 创建日期: 2026-04-30
-- 最后更新: 2026-05-01
+- 最后更新: 2026-05-05
 
 ## 何时触发
 
@@ -20,7 +20,7 @@
 - 用户说「转写这期播客」「下载这期播客」「帮我听一下这期」
 - 用户提供音频文件或已存在的播客目录，希望转写并生成脑图
 - 用户提供 `transcript.txt`，说「生成脑图」「生成思维导图」「做个大纲」
-- 播客收集流程完成后，需要继续产出 `mindmap.md`
+- 播客收集流程完成后，需要继续产出 `mindmap.md` 和 `insights.md`
 
 ## 路径约定
 
@@ -36,29 +36,32 @@
 
 | 用户输入 | 起点 | 目标产物 |
 |---|---|---|
-| 小宇宙链接 | 下载音频和元数据 | `transcript.txt` + `mindmap.md` |
-| 已有音频 | ASR 转写 | `transcript.txt` + `mindmap.md` |
+| 小宇宙链接 | 下载音频和元数据 | `transcript.txt` + `mindmap.md` + `insights.md` |
+| 已有音频 | ASR 转写 | `transcript.txt` + `mindmap.md` + `insights.md` |
 | 已有 episode 目录 | 补齐缺失步骤 | 缺什么补什么 |
-| 已有 `transcript.txt` | 脑图生成 | `mindmap.md` |
+| 已有 `transcript.txt` | 知识层生成 | `mindmap.md` + `insights.md` |
 | 用户只要转写 | 停在阅读层 | `transcript.txt`，可选 `_pipeline/transcript_qa.md` |
 
-不要因为用户说「思维导图」就重新跑 ASR。如果 `transcript.txt` 已经存在，直接进入脑图生成阶段；只有用户明确要求重新转写，或 transcript 质量明显不可用时，才回到转写阶段。
+不要因为用户说「思维导图」或「洞见」就重新跑 ASR。如果 `transcript.txt` 已经存在，直接进入知识层生成阶段；只有用户明确要求重新转写，或 transcript 质量明显不可用时，才回到转写阶段。
 
 ## 核心原则
 
-这套流程把播客处理成五层产物：
+这套流程把播客处理成六层产物：
 
 1. **原始素材层** → `audio.*`、`metadata.json`
 2. **事实层** → `_pipeline/transcript_raw.jsonl`，按需生成 `_pipeline/transcript_raw.txt`
 3. **修正层** → `_pipeline/corrections.yaml`、`_pipeline/lexicon.yaml`
 4. **阅读层** → `transcript.txt`
-5. **知识层** → `mindmap.md`，按需生成 `_pipeline/transcript_qa.md`
+5. **知识层** → `mindmap.md`、`insights.md`，按需生成 `_pipeline/transcript_qa.md`
+6. **展示层** → `episode.html`
 
-默认可见产物只保留 `metadata.json`、`transcript.txt` 和 `mindmap.md`。音频文件按来源保留，内部缓存、QA 和修正文件统一放进 `_pipeline/`，避免 episode 根目录堆满中间产物。
+默认可见产物只保留 `metadata.json`、`transcript.txt`、`mindmap.md`、`insights.md` 和 `episode.html`。音频文件按来源保留，内部缓存、QA 和修正文件统一放进 `_pipeline/`，避免 episode 根目录堆满中间产物。
 
 事实层不手改，阅读层可重复生成。发现转写、说话人或术语不准时，优先写入 `_pipeline/corrections.yaml` 或 `_pipeline/lexicon.yaml`，再重新生成 `transcript.txt`。
 
-脑图阶段的目标不是把 transcript 机械缩短，而是提炼出框架、机制、因果链、反直觉判断、关键证据和行动建议。每个节点都要能回到 transcript 找到依据。
+知识层分成两个互补产物：`mindmap.md` 负责结构覆盖，提炼框架、机制、因果链、反直觉判断、关键证据和行动建议；`insights.md` 负责抽象升级，总结可复用的方法论、思维模式、思考方式、商业价值、商业理论、商业转型、商业洞察和商业思考。两者都必须能回到 transcript 找到依据。
+
+HTML 展示层不改变上游事实和知识产物，只负责把播放器、transcript、shownotes、思维导图和洞见组织成一个离线可打开的阅读页面。页面需要优先复用 corrections / lexicon 后的 transcript，而不是直接读取未修正的 raw JSONL。
 
 ## Stage 1: 下载与转写
 
@@ -196,7 +199,7 @@ replacements:
 
 ### 输出契约
 
-默认只产出 `mindmap.md`。它使用嵌套 bullet，不使用 `##` 章节标题。这样更接近脑图树结构，也方便继续编辑和投喂给 Agent。
+本阶段产出 `mindmap.md`。它使用嵌套 bullet，不使用 `##` 章节标题。这样更接近脑图树结构，也方便继续编辑和投喂给 Agent。`mindmap.md` 是后续 `insights.md` 的结构索引，但不能替代 transcript 证据。
 
 ```markdown
 # {节目标题}
@@ -295,6 +298,84 @@ replacements:
 
 如果用户提供参考脑图、截图或旧版 `mindmap.md`，再额外做外部对比：参考中的关键论点要保留，参考遗漏但 transcript 中重要的机制和案例要补上。目标是在准确度和提炼度上得到更好的版本。
 
+## Stage 4: 生成 Insights
+
+### 输出契约
+
+`insights.md` 面向复用、二次写作和商业思考沉淀，承载比脑图更高一层的判断。它不重复完整大纲，而是回答：这期节目里有哪些可迁移的方法论、思维模式、思考方式、商业价值、商业理论、商业转型、商业洞察和商业思考？
+
+生成顺序固定为：先完成并自检 `mindmap.md`，再基于 `transcript.txt` + `mindmap.md` 生成 `insights.md`。不能只从脑图二次概括，因为脑图为了结构压缩会丢失语气、案例和论证细节。
+
+默认格式：
+
+```markdown
+# {节目标题} - Insights
+
+## One-line Thesis
+
+{用 1-2 句话概括这一期最值得复用的总判断。}
+
+## Methodologies
+
+- **{方法论名称}**：{适用场景、操作方式、边界条件}
+- **{方法论名称}**：{适用场景、操作方式、边界条件}
+
+## Thinking Patterns
+
+- **{思维模式 / 思考方式}**：{它如何改变判断顺序、问题定义或决策依据}
+- **{思维模式 / 思考方式}**：{它如何改变判断顺序、问题定义或决策依据}
+
+## Business Insights
+
+- **{商业价值 / 商业理论 / 商业洞察}**：{机制、证据、反直觉点}
+- **{商业转型 / 商业思考}**：{从什么转向什么，为什么成立，适合谁}
+
+## Evidence Anchors
+
+- `{时间戳}` {对应 transcript 中的案例、数字、原话或论证片段}
+- `{时间戳}` {对应 transcript 中的案例、数字、原话或论证片段}
+
+## Actionable Applications
+
+- {如果要应用到个人 IP、产品、咨询、课程、服务、组织转型或 AI-native workflow，应如何落地}
+
+## Open Questions
+
+- {还需要进一步验证、追问或反例检验的问题}
+```
+
+### 提炼维度
+
+优先从 transcript 中提炼这些内容：
+
+- **方法论**：可复用的做事流程、判断步骤、增长路径、学习路径、服务交付方式。
+- **思维模式**：嘉宾如何定义问题、排序变量、处理不确定性、识别杠杆点。
+- **思考方式**：从哪个层次看问题，例如从工具看、从业务看、从资产看、从关系网络看。
+- **商业价值**：真正产生付费、信任、复购、效率提升或风险降低的机制。
+- **商业理论**：节目中隐含的商业假设、定价逻辑、产品形态、供需关系、分发机制。
+- **商业转型**：从旧模式到新模式的迁移路径，例如从卖课到服务、从产品到解决方案、从 2C 到 2B。
+- **商业洞察**：反直觉判断、非共识判断、具体行业机会、成本结构变化。
+- **商业思考**：对个人 IP、咨询、课程、AI 工具、组织能力或职业发展的迁移启发。
+
+### 写法要求
+
+- 每条 insight 必须是判断句，不写「值得思考」「有一定启发」这类空泛总结。
+- 每条 insight 要么有 transcript 证据，要么明确标注为推论；推论不能伪装成嘉宾原意。
+- 不重复 `mindmap.md` 的章节结构。脑图回答「讲了什么」，insights 回答「这套东西能迁移成什么」。
+- 优先保留强机制：因果链、约束条件、适用边界、反例、商业后果。
+- 如果内容没有明显商业含义，也不要硬贴商业标签；可以只保留方法论和思考方式。
+- 对商业转型类内容，要写清楚「从 A 到 B」以及触发转型的约束变化。
+
+### 生成步骤
+
+1. 读取 `metadata.json`、`transcript.txt` 和已自检通过的 `mindmap.md`。
+2. 从脑图中列出候选高价值主题：原创框架、商业化节点、方法模块、反直觉判断、关键案例。
+3. 回到 transcript 中查证每个候选主题，补充时间戳、案例、原话和边界条件。
+4. 按默认格式生成 `insights.md`，宁可少而准，不要把所有章节都平均总结一遍。
+5. 做二次自检：删除没有证据、只是换句话复述脑图、或者缺少迁移价值的条目。
+
+没有 `insights.md` 时，HTML 生成器仍应正常输出页面，并在 insights 区域显示空状态提示。
+
 ### 质量反例
 
 ```markdown
@@ -316,6 +397,58 @@ replacements:
     - 解决方案的确定性是高客单价的关键
 ```
 
+## Stage 5: 生成 Podwise 风格 HTML
+
+### 输出契约
+
+默认产出 `episode.html`，放在 episode 根目录。它是展示层成品，和 `transcript.txt`、`mindmap.md`、`insights.md` 同级。
+
+```bash
+context-infrastructure/.venv/bin/python context-infrastructure/tools/podcast_pipeline.py html collected-contents/播客名/集标题
+```
+
+这个命令会读取：
+
+- `metadata.json`：标题、播客名、发布日期、时长、封面、shownotes / description
+- `audio.*` 或 `metadata.audio_path`：播放器音频源
+- `_pipeline/transcript_raw.jsonl`：优先构建可点击、可高亮的 transcript 对照
+- `_pipeline/corrections.yaml` / `_pipeline/lexicon.yaml`：应用局部修正和术语替换
+- `transcript.txt`：raw JSONL 缺失时的 fallback
+- `mindmap.md`：思维导图文本树
+- `insights.md`：洞见卡片
+
+可选参数：
+
+```bash
+context-infrastructure/.venv/bin/python context-infrastructure/tools/podcast_pipeline.py html collected-contents/播客名/集标题 --output /tmp/episode.html
+```
+
+### 页面布局
+
+```text
+┌─────────────────────────────────────────────────────────────────────┐
+│ Header: cover + title + podcast + date + duration                  │
+├─────────────────────────────────────────────────────────────────────┤
+│ Player: custom audio player                                         │
+├───────────────────────────────┬─────────────────────────────────────┤
+│ Transcript                    │ Knowledge Panel                     │
+│ - search / filter             │ [Shownotes] [Mindmap] [Insights]    │
+│ - clickable timestamps        │ - shownotes / description           │
+│ - active segment highlight    │ - mindmap.md tree                   │
+│                               │ - insights.md sections              │
+└───────────────────────────────┴─────────────────────────────────────┘
+```
+
+移动端改为上下堆叠，播放器保持在内容上方，四个内容区通过 tab 切换。
+
+### 交互要求
+
+- 播放器使用原生 `audio` 作为播放内核，自定义进度、倍速、音量和快捷键控件，不引入前端构建系统。
+- 点击 transcript 时间戳时跳转到对应播放进度。
+- 播放时根据当前时间高亮 transcript 段落。
+- Shownotes、mindmap 和 insights 都做 HTML escape，避免把外部内容直接注入页面。
+- 没有某个可选产物时显示空状态，不阻断页面生成。
+
 ## 输出物
 
 ```text
@@ -326,6 +459,8 @@ collected-contents/
         ├── metadata.json              # 元数据
         ├── transcript.txt             # 阅读层：合并段落
         ├── mindmap.md                 # 高质量脑图正文
+        ├── insights.md                # Insights：方法论、思维模式、商业洞察、行动迁移
+        ├── episode.html               # 展示层：播放器 + transcript + shownotes + 脑图 + 洞见
         └── _pipeline/
             ├── transcript_raw.jsonl   # 事实层：原子 segment，默认保留
             ├── transcript_raw.txt     # 校对层：短句版，按需生成
@@ -340,6 +475,10 @@ collected-contents/
 - [ ] 如果跑过 ASR，已检查 `_pipeline/transcript_qa.md` 中的高风险项
 - [ ] 用户指出的错误已写入 `_pipeline/corrections.yaml` 或 `_pipeline/lexicon.yaml`，而不是直接改事实层
 - [ ] 已完成基于 transcript 的脑图自检，而不是只生成第一版
+- [ ] 已基于 `transcript.txt` + `mindmap.md` 生成 `insights.md`
+- [ ] `insights.md` 已覆盖方法论、思维模式 / 思考方式，以及有证据支撑的商业洞察
+- [ ] `insights.md` 没有复述完整大纲，而是提炼可迁移判断和应用方式
+- [ ] 每条商业转型或商业价值判断都写清楚机制、适用边界或证据锚点
 - [ ] transcript 中的主论点、原创框架、关键案例和数字已覆盖
 - [ ] 如果用户提供参考脑图，已额外对比并吸收其中有效信息
 - [ ] 抽象标签已尽量升级为机制、因果链、框架或行动建议
@@ -349,6 +488,10 @@ collected-contents/
 - [ ] 全文没有前重后轻，后半段章节同样充分展开
 - [ ] 层级服务表达，不为凑层级而牺牲准确和密度
 - [ ] 章节数服从内容密度；长播客可超过 8 章，但不能用碎片章节凑篇幅
+- [ ] 如果需要展示页面，已生成 `episode.html`
+- [ ] `episode.html` 包含播放器、transcript、shownotes、mindmap 和 insights 五个功能区
+- [ ] transcript 时间戳可点击，播放时当前段落会高亮
+- [ ] 页面缺少 `mindmap.md` 或 `insights.md` 时仍能正常打开
 
 ## 处理长 Transcript 的策略
 
@@ -364,7 +507,8 @@ collected-contents/
 |--------|------|------|
 | 转写引擎 | mlx-whisper | Apple Silicon MLX 加速，比 whisperX CPU 快数倍 |
 | 说话人分离 | mlx-audio Sortformer | MLX 原生加速，无需 HF_TOKEN / pyannote |
-| 脑图提炼 | Cursor Agent 直接完成 | 需要回看 transcript 做判断和自检 |
+| 脑图与洞见提炼 | Cursor Agent 直接完成 | 需要回看 transcript 做判断、自检，并把结构覆盖和高层迁移分开 |
+| HTML 展示 | 原生 HTML/CSS/JS 单文件 | 离线可打开，避免为单页引入前端构建系统 |
 
 ## 与 bilibili_whisper_transcription 的区别
 
@@ -373,7 +517,7 @@ collected-contents/
 | 来源 | 小宇宙播客 / 已有 transcript | B 站 / YouTube 视频 |
 | ASR | mlx-whisper（Apple Silicon） | openai-whisper（CPU） |
 | 说话人分离 | Sortformer（MLX 加速） | 无 |
-| 额外能力 | QA 修正 + 高质量脑图 | LLM 后处理（分段、纠错） |
+| 额外能力 | QA 修正 + 高质量脑图 + HTML 展示页 | LLM 后处理（分段、纠错） |
 | 并发 | 单集处理 | 多进程批量转录 |
 
 ## 踩坑记录
@@ -384,8 +528,48 @@ collected-contents/
 | Sortformer 首次运行慢 | 需下载 Sortformer 模型 | 首次耐心等待，后续使用缓存 |
 | venv 未激活 | `ModuleNotFoundError` | 使用 `context-infrastructure/.venv/bin/python` |
 | 只看 shownotes | 章节像节目简介，缺少论证 | shownotes 只用于定位，最终节点必须回到 transcript 验证 |
+| HTML 直接读 raw JSONL | 页面内容绕过修正文件，和 `transcript.txt` 不一致 | 生成 HTML 前应用 corrections / lexicon，或退回读取 `transcript.txt` |
+| 已有 episode 目录缺音频 | `run <episode_dir>` 只找本地 `audio.*`，不会按 `metadata.audio_url` 补下载 | 已更新 `podcast_pipeline.py`：目录入口缺音频时下载到同目录，并同步 `metadata.audio_path` |
+
+## 试跑记录
+
+### 2026-05-05：AI炼金术 / 课代表立正
+
+输入目录：
+
+```text
+collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓/
+```
+
+初始状态：目录只有 `metadata.json`，`metadata.audio_path` 指向旧的 `tmp/podcasts/.../audio.m4a`，但目标 episode 目录下没有可见知识层产物。
+
+试跑命令：
+
+```bash
+context-infrastructure/.venv/bin/python tools/podcast_pipeline.py run "collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓" --num-speakers 2 --debug-files
+context-infrastructure/.venv/bin/python tools/podcast_pipeline.py init "collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓"
+context-infrastructure/.venv/bin/python tools/podcast_pipeline.py render "collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓" --debug-files
+context-infrastructure/.venv/bin/python tools/podcast_pipeline.py qa "collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓"
+context-infrastructure/.venv/bin/python tools/podcast_pipeline.py html "collected-contents/AI炼金术/课代表立正：AI 课卖 2000 刀，偏偏坚持古法手搓"
+```
+
+结果：
+
+- ASR + Sortformer 完整跑通，用时约 5 分 21 秒。
+- 生成 `transcript.txt`、`_pipeline/transcript_raw.jsonl`、`_pipeline/transcript_raw.txt`、`_pipeline/transcript_rendered_raw.txt`、`_pipeline/transcript_qa.md`。
+- 初始化并补充 `_pipeline/lexicon.yaml` 后，QA issues 从 25 降到 17；剩余主要是长独白和 3 个疑似 speaker drift，抽样看多为嘉宾连续回答，不阻断知识层生成。
+- 生成 `mindmap.md` 和 `insights.md`，覆盖 AI 放大器、高客单价 AI 课、user 到 architect、correct contrarian、组织提效、打工人转型和 AI 炼金术商业化建议。
+- 生成 `episode.html`，返回 `has_audio=true`、`has_mindmap=true`、`has_insights=true`。
+
+本次暴露的 workflow 改进点：
+
+- `run <episode_dir>` 必须支持从 `metadata.audio_url` 补齐音频，否则“已有 episode 目录：缺什么补什么”与实际行为不一致。
+- `run` 不会自动创建 `_pipeline/corrections.yaml` / `_pipeline/lexicon.yaml`，术语修正需要额外 `init`；后续可考虑在 run 阶段自动创建空配置文件。
+- QA 的 `possible_speaker_drift` 对播客长回答偏敏感，需要在报告中区分“真实 drift”和“长回答待抽样确认”。
+- `metadata.audio_path` 应始终指向 episode 目录内的实际音频，避免 HTML 和后续脚本读到过期路径。
 
 ## 依赖
 
 - Python 依赖（在 `context-infrastructure/.venv` 中，见 `context-infrastructure/tools/requirements.txt`）：`httpx`, `mlx-whisper`, `mlx-audio`
+- HTML 生成器只依赖 Python 标准库，页面使用原生 HTML/CSS/JS
 - 硬件要求：Apple Silicon Mac（M1/M2/M3/M4）

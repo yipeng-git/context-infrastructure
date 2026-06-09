@@ -31,3 +31,4 @@
 
 <!-- 随着你的项目增长，在这里添加活跃项目的快捷路由 -->
 <!-- 格式：- `project-name` → `adhoc_jobs/project_name/` (说明) -->
+- `ai_evolution_hyperframes` → `adhoc_jobs/ai_evolution_hyperframes/` (HyperFrames 竖屏中文演讲：ChatGPT moment 之后 AI 行业发展路径，edge-tts 配音 + 字幕，~2 分钟)

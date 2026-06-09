@@ -1,0 +1,67 @@
+# lexicon.yaml
+# 播客级术语表。这里的替换只作用于派生文本，不修改 transcript_raw.jsonl。
+replacements:
+  chargept: ChatGPT
+  cloudcode: Claude Code
+  达疑: 答疑
+  货客: 获客
+  潜移茫化: 潜移默化
+  Chartbot: Chatbot
+  ChadGP: ChatGPT
+  ChatticP: ChatGPT
+  ChateHPG: ChatGPT
+  Chatboard: Chatbot
+  Cloud Code: Claude Code
+  Codex Cloud Code: Codex 和 Claude Code
+  Google Claude: Google Cloud
+  Cloud之后: Claude 之后
+  Cloud的: Claude 的
+  Cloud Code的: Claude Code 的
+  Answerp: Anthropic
+  Answerpich: Anthropic
+  Answerpick: Anthropic
+  Anthorpic: Anthropic
+  Athorpic: Anthropic
+  Athropec: Anthropic
+  Anthrope: Anthropic
+  Anthropic: Anthropic
+  Anthority: Anthropic
+  Athority: Anthropic
+  Athrope: Anthropic
+  Andromic: Anthropic
+  anthropy: Anthropic
+  uncorpic: Anthropic
+  OpenEye: OpenAI
+  open eye: OpenAI
+  open Eye: OpenAI
+  open i: OpenAI
+  open-i: OpenAI
+  OpenI: OpenAI
+  OPA: OpenAI
+  OPI: OpenAI
+  OpenHop: OpenAI
+  OpenIcon: OpenAI
+  OpenID: OpenAI
+  Open Edge: OpenAI
+  OpenAID: OpenAI
+  OpenAIcon: OpenAI
+  Gemina: Gemini
+  GEMINA: Gemini
+  MITA: Meta
+  VITA: Meta
+  TPD: TBD
+  FCAI: xAI
+  XAI: xAI
+  xAII: xAI
+  Minas: Manus
+  Mindus: Manus
+  Mesos: Mythos
+  Messles: Mythos
+  Sparl: Spud
+  Spire: Spud
+  spire: Spud
+  Spud的: Spud
+  Solta: SOTA
+  SOLTA: SOTA
+  Salta: SOTA
+  AGA: AGI

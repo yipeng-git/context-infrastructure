@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant LLM
+    participant SkillTool as Skill Tool
+    participant Service as Skill Service
+    participant Store as Storage
+
+    Note over LLM: Prompt 中已列出 Skill 摘要
+    LLM->>SkillTool: tool_call 读取 Skill
+    SkillTool->>Service: 查询已启用 Skill
+    Service->>Store: 按名称 + enabled 过滤
+    Store-->>Service: Skill 记录
+    Service-->>SkillTool: Markdown SOP
+    SkillTool-->>LLM: 返回 SOP
+    LLM->>LLM: 按 SOP 执行后续调用

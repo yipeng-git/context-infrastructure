@@ -30,6 +30,7 @@ from transcribe_audio import (
     write_raw_txt,
     write_segments_jsonl,
 )
+from render_podcast_html import render_podcast_html
 from xiaoyuzhou_download import download_audio, fetch_episode
 
 
@@ -99,6 +100,29 @@ def resolve_episode_dir(target: str, output_dir: Path) -> Path:
     if path.is_dir():
         return path
     raise FileNotFoundError(f"无法识别目标: {target}")
+
+
+def ensure_audio_file(episode_dir: Path) -> Path:
+    try:
+        audio_path = find_audio(episode_dir)
+        metadata_path = episode_dir / "metadata.json"
+        if metadata_path.exists():
+            metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            if metadata.get("audio_path") != str(audio_path):
+                metadata["audio_path"] = str(audio_path)
+                metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+        return audio_path
+    except FileNotFoundError:
+        metadata_path = episode_dir / "metadata.json"
+        if not metadata_path.exists():
+            raise
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        if not metadata.get("audio_url"):
+            raise
+        audio_path = download_audio(metadata, episode_dir.parent, episode_dir=episode_dir)
+        metadata["audio_path"] = str(audio_path)
+        metadata_path.write_text(json.dumps(metadata, ensure_ascii=False, indent=2), encoding="utf-8")
+        return audio_path
 
 
 def pipeline_dir(episode_dir: Path) -> Path:
@@ -174,7 +198,7 @@ def transcribe_episode(
     diar_model: str,
     debug_files: bool,
 ) -> list[dict]:
-    audio_path = find_audio(episode_dir)
+    audio_path = ensure_audio_file(episode_dir)
     segments = transcribe_mlx(audio_path, model)
 
     if no_diarize:
@@ -399,6 +423,11 @@ def main() -> None:
     init_parser = subparsers.add_parser("init", help="创建 corrections.yaml 和 lexicon.yaml")
     init_parser.add_argument("episode_dir")
 
+    html_parser = subparsers.add_parser("html", help="生成 Podwise 风格 episode.html")
+    html_parser.add_argument("episode_dir")
+    html_parser.add_argument("--output", help="输出 HTML 路径，默认 episode_dir/episode.html")
+    add_common_args(html_parser)
+
     args = parser.parse_args()
 
     if args.command == "run":
@@ -442,6 +471,15 @@ def main() -> None:
             "corrections": str(corrections_path),
             "lexicon": str(lexicon_path),
         }, ensure_ascii=False, indent=2))
+
+    elif args.command == "html":
+        result = render_podcast_html(
+            Path(args.episode_dir),
+            output=Path(args.output) if args.output else None,
+            max_group_seconds=args.max_group_seconds,
+            max_group_chars=args.max_group_chars,
+        )
+        print(json.dumps(result.__dict__, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

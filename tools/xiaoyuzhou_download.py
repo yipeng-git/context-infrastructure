@@ -90,14 +90,14 @@ def guess_extension(url: str) -> str:
     return ".m4a"
 
 
-def download_audio(episode: dict, output_dir: Path) -> Path:
+def download_audio(episode: dict, output_dir: Path, episode_dir: Path | None = None) -> Path:
     """流式下载音频"""
     audio_url = episode["audio_url"]
     if not audio_url:
         raise ValueError(f"单集没有音频链接: {episode['title']}")
 
     ext = guess_extension(audio_url)
-    ep_dir = output_dir / safe_filename(episode["podcast_title"], 80) / safe_filename(episode["title"])
+    ep_dir = episode_dir or output_dir / safe_filename(episode["podcast_title"], 80) / safe_filename(episode["title"])
     ep_dir.mkdir(parents=True, exist_ok=True)
     filepath = ep_dir / f"audio{ext}"
 

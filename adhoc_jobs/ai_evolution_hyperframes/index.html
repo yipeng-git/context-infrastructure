@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; overflow: hidden;
+        background: #05070f;
+        font-family: "PingFang SC", "Source Han Sans SC", "Noto Sans SC", sans-serif;
+      }
+      :root {
+        --ink: #f3f7ff;
+        --dim: #93a4c6;
+        --mono: "Space Mono", "DM Mono", "JetBrains Mono", ui-monospace, monospace;
+      }
+
+      /* ---------- background ---------- */
+      #bg {
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(1200px 1200px at 50% 18%, rgba(70,130,255,0.10), transparent 60%),
+          radial-gradient(900px 900px at 50% 95%, rgba(63,208,255,0.07), transparent 60%),
+          #05070f;
+      }
+      #grain {
+        position: absolute; inset: 0; opacity: 0.05; mix-blend-mode: screen;
+        background-image: radial-gradient(rgba(255,255,255,0.5) 1px, transparent 1px);
+        background-size: 4px 4px;
+      }
+
+      /* ---------- stage / scene panels ---------- */
+      #stage { position: absolute; inset: 0; }
+      .panel {
+        position: absolute; top: 0; left: 0; width: 1080px; height: 1920px;
+        opacity: 0; visibility: hidden;
+        --acc: #46e6ff;
+      }
+      .frame {
+        position: absolute; top: 150px; left: 80px;
+        width: 920px; height: 1140px;
+        border-radius: 30px; overflow: hidden;
+        border: 1.5px solid rgba(255,255,255,0.10);
+        box-shadow: 0 40px 120px rgba(0,0,0,0.6),
+                    0 0 0 1px rgba(255,255,255,0.04) inset;
+      }
+      .frame img {
+        position: absolute; top: 50%; left: 50%;
+        width: 100%; height: 100%; object-fit: cover;
+        transform: translate(-50%, -50%);
+        transform-origin: center;
+      }
+      .imgwrap {
+        position: absolute; inset: 0;
+      }
+      .frame .shade {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg,
+          rgba(5,7,15,0.10) 0%, rgba(5,7,15,0.0) 32%,
+          rgba(5,7,15,0.55) 70%, rgba(5,7,15,0.92) 100%);
+      }
+      .frame .accbar {
+        position: absolute; left: 0; bottom: 0; height: 5px; width: 100%;
+        background: linear-gradient(90deg, var(--acc), transparent 85%);
+        transform: scaleX(0); transform-origin: left center;
+      }
+      .yeartag {
+        position: absolute; top: 30px; left: 32px;
+        font-family: var(--mono); font-size: 28px; letter-spacing: 2px;
+        color: var(--ink); padding: 10px 18px; border-radius: 999px;
+        background: rgba(8,12,24,0.55); border: 1.5px solid var(--acc);
+        box-shadow: 0 0 26px rgba(70,130,255,0.35);
+      }
+      .capt {
+        position: absolute; left: 34px; bottom: 40px; right: 34px;
+      }
+      .era {
+        font-family: var(--mono); font-size: 26px; letter-spacing: 7px;
+        color: var(--acc); text-transform: uppercase; margin-bottom: 14px;
+        display: flex; align-items: center; gap: 16px;
+      }
+      .era .dotmark { width: 10px; height: 10px; border-radius: 50%; background: var(--acc);
+        box-shadow: 0 0 16px var(--acc); }
+      .head {
+        font-size: 104px; font-weight: 800; line-height: 1.02; color: var(--ink);
+        letter-spacing: -1px; text-shadow: 0 6px 40px rgba(0,0,0,0.6);
+      }
+      .sub {
+        margin-top: 20px; font-size: 38px; font-weight: 300; line-height: 1.35;
+        color: #cdd9f2; max-width: 800px;
+      }
+
+      /* ---------- HUD (persistent) ---------- */
+      #hud { position: absolute; inset: 0; pointer-events: none; }
+      .kicker {
+        position: absolute; top: 64px; left: 80px;
+        font-family: var(--mono); font-size: 24px; letter-spacing: 3px;
+        color: var(--dim);
+      }
+      .kicker b { color: var(--ink); font-weight: 700; }
+      .counter {
+        position: absolute; top: 58px; right: 80px; text-align: right;
+        font-family: var(--mono); color: var(--ink);
+      }
+      .counter .now { font-size: 40px; font-weight: 700; }
+      .counter .tot { font-size: 24px; color: var(--dim); }
+
+      /* progress timeline */
+      #prog { position: absolute; left: 90px; right: 90px; bottom: 96px; height: 60px; }
+      #prog .track {
+        position: absolute; left: 0; right: 0; top: 14px; height: 2px;
+        background: rgba(255,255,255,0.14);
+      }
+      #prog .fill {
+        position: absolute; left: 0; top: 14px; height: 2px; width: 0%;
+        background: linear-gradient(90deg, #46e6ff, #5b8cff);
+        box-shadow: 0 0 14px rgba(70,130,255,0.6);
+      }
+      #prog .tick {
+        position: absolute; top: 6px; width: 2px; height: 18px;
+        background: rgba(255,255,255,0.28); transform: translateX(-1px);
+      }
+      #prog .tlab {
+        position: absolute; top: 30px; transform: translateX(-50%);
+        font-family: var(--mono); font-size: 20px; color: var(--dim);
+      }
+      #prog .dot {
+        position: absolute; top: 8px; left: 0; width: 16px; height: 16px;
+        margin-left: -8px; border-radius: 50%;
+        background: #eaf4ff; box-shadow: 0 0 18px 4px rgba(70,200,255,0.8);
+      }
+
+      /* ---------- captions / subtitles ---------- */
+      #caps { position: absolute; left: 70px; right: 70px; bottom: 230px; height: 240px; }
+      .cg {
+        position: absolute; left: 0; right: 0; bottom: 0;
+        text-align: center; opacity: 0; visibility: hidden;
+      }
+      .cg span {
+        display: inline; box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        font-size: 46px; font-weight: 500; line-height: 1.5; color: #ffffff;
+        background: rgba(6,10,20,0.62);
+        padding: 8px 20px; border-radius: 10px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="116"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="bg"></div>
+      <div id="grain"></div>
+      <div id="stage"></div>
+
+      <div id="hud">
+        <div class="kicker">AI 行业演进 · <b>2022 — 2026</b></div>
+        <div class="counter"><span class="now" id="ctr">01</span><span class="tot"> / 07</span></div>
+        <div id="prog">
+          <div class="track"></div>
+          <div class="fill" id="pfill"></div>
+          <div class="dot" id="pdot"></div>
+        </div>
+      </div>
+
+      <div id="caps"></div>
+
+      <!-- audio track (one clip per scene, placed at its global start) -->
+      <audio id="a1" src="media/audio/s1.mp3" data-start="0.25"   data-duration="11.664" data-track-index="9"></audio>
+      <audio id="a2" src="media/audio/s2.mp3" data-start="12.714" data-duration="19.56"  data-track-index="9"></audio>
+      <audio id="a3" src="media/audio/s3.mp3" data-start="33.074" data-duration="15.24"  data-track-index="9"></audio>
+      <audio id="a4" src="media/audio/s4.mp3" data-start="49.114" data-duration="17.136" data-track-index="9"></audio>
+      <audio id="a5" src="media/audio/s5.mp3" data-start="67.05"  data-duration="17.04"  data-track-index="9"></audio>
+      <audio id="a6" src="media/audio/s6.mp3" data-start="84.89"  data-duration="17.76"  data-track-index="9"></audio>
+      <audio id="a7" src="media/audio/s7.mp3" data-start="103.45" data-duration="11.856" data-track-index="9"></audio>
+    </div>
+
+    <script>
+      /* ===================== DATA ===================== */
+      var SCENES = [
+        { i:1, start:0.0,    dur:12.464, acc:"#46e6ff", img:"media/scene1_bigbang.png",
+          year:"2022.11", era:"The Spark",     head:"ChatGPT 时刻",  sub:"对话式 AI 引爆，五天突破百万用户" },
+        { i:2, start:12.464, dur:20.36,  acc:"#5b8cff", img:"media/scene2_race.png",
+          year:"2023",    era:"Arms Race",     head:"百模大战",      sub:"GPT-4、Gemini、Claude、开源 LLaMA 群雄并起" },
+        { i:3, start:32.824, dur:16.04,  acc:"#36e0c8", img:"media/scene3_multimodal.png",
+          year:"2023—24", era:"Multimodal",    head:"看 · 听 · 写",  sub:"多模态与长上下文，能力边界不断扩张" },
+        { i:4, start:48.864, dur:17.936, acc:"#9b8cff", img:"media/scene4_reasoning.png",
+          year:"2024—25", era:"Reasoning",     head:"学会思考",      sub:"o1 / o3 与 DeepSeek-R1，推理范式跃迁" },
+        { i:5, start:66.8,   dur:17.84,  acc:"#46e6ff", img:"media/scene5_agent.png",
+          year:"2025—26", era:"Agents",        head:"从对话到行动",  sub:"调用工具、自动编程，Agent 范式崛起" },
+        { i:6, start:84.64,  dur:18.56,  acc:"#ffb454", img:"media/scene2_race.png",
+          year:"2026",    era:"Landscape",     head:"新的棋局",      sub:"御三家鼎立，DeepSeek 撕开成本缺口" },
+        { i:7, start:103.2,  dur:12.656, acc:"#6fe9ff", img:"media/scene1_bigbang.png",
+          year:"2022 → ∞", era:"What's Next",  head:"才刚刚开始",    sub:"从「会说话」，到「会做事」" }
+      ];
+
+      var CAPS = [
+        { s:0.35,   e:4.292,   t:"二零二二年底，ChatGPT 横空出世。" },
+        { s:4.312,  e:7.281,   t:"五天，突破一百万用户。" },
+        { s:7.281,  e:11.851,  t:"从这一刻起，整个 AI 行业，被彻底改写。" },
+        { s:12.814, e:16.04,   t:"二零二三年，百模大战打响。" },
+        { s:16.06,  e:23.599,  t:"GPT-4 把能力推上新高度，谷歌的 Gemini、Anthropic 的 Claude 紧追不舍。" },
+        { s:23.599, e:28.404,  t:"Meta 开源了 LLaMA，国内大模型也接连登场。" },
+        { s:28.404, e:32.206,  t:"大模型，从稀缺变成了基础设施。" },
+        { s:33.174, e:36.139,  t:"很快，模型不再只会聊天。" },
+        { s:36.159, e:43.386,  t:"它能看图、能听声、能写代码，上下文从几千字，飙升到上百万字。" },
+        { s:43.386, e:48.256,  t:"AI 第一次，真正开始理解这个多模态的世界。" },
+        { s:49.214, e:52.531,  t:"二零二四年底，范式再次跃迁。" },
+        { s:52.551, e:56.913,  t:"OpenAI 的 o1，学会了先思考、再回答。" },
+        { s:56.913, e:66.184,  t:"二零二五年初，DeepSeek 用强化学习训出 R1，以极低的成本逼近顶尖推理，震动了整个行业。" },
+        { s:67.15,  e:70.233,  t:"接下来，主角变成了 Agent。" },
+        { s:70.253, e:77.128,  t:"AI 不再只是回答问题，而是会调用工具、会写代码、能自己干活。" },
+        { s:77.128, e:84.016,  t:"像 Cursor、Claude Code 这样的编程 Agent，让写代码，成了 AI 的第二主场。" },
+        { s:84.99,  e:89.518,  t:"今天，算力依然是命脉，英伟达稳坐牌桌。" },
+        { s:89.538, e:97.429,  t:"OpenAI、Anthropic、谷歌三足鼎立，而 DeepSeek 用开源和低成本撕开缺口。" },
+        { s:97.429, e:102.585, t:"越来越多人相信：模型，正在成为新一代操作系统。" },
+        { s:103.55, e:106.841, t:"从对话，到推理，再到行动。" },
+        { s:106.861,e:112.213, t:"短短三年，AI 完成了从会说话，到会做事的跃迁。" },
+        { s:112.213,e:115.246, t:"而这场变革，才刚刚开始。" }
+      ];
+
+      var TOTAL = 116;
+      var YEARS = ["2022","2023","2024","2025","2026"];
+      // dot position (% of progress bar) per scene
+      var DOTPOS = [4, 26, 44, 62, 80, 94, 99];
+
+      /* ===================== BUILD DOM ===================== */
+      var stage = document.getElementById("stage");
+      SCENES.forEach(function (sc) {
+        var p = document.createElement("div");
+        p.className = "panel"; p.id = "p" + sc.i;
+        p.style.setProperty("--acc", sc.acc);
+        if (sc.i === 1) { p.style.opacity = 1; p.style.visibility = "visible"; }
+        p.innerHTML =
+          '<div class="frame">' +
+            '<div class="imgwrap"><img id="img' + sc.i + '" src="' + sc.img + '" crossorigin="anonymous" alt=""></div>' +
+            '<div class="shade"></div>' +
+            '<div class="yeartag" id="yt' + sc.i + '">' + sc.year + '</div>' +
+            '<div class="capt">' +
+              '<div class="era" id="er' + sc.i + '"><span class="dotmark"></span>' + sc.era + '</div>' +
+              '<div class="head" id="hd' + sc.i + '">' + sc.head + '</div>' +
+              '<div class="sub" id="sb' + sc.i + '">' + sc.sub + '</div>' +
+            '</div>' +
+            '<div class="accbar" id="ab' + sc.i + '"></div>' +
+          '</div>';
+        stage.appendChild(p);
+      });
+
+      // progress ticks + labels
+      var prog = document.getElementById("prog");
+      YEARS.forEach(function (y, k) {
+        var pct = 4 + k * (95 - 4) / (YEARS.length - 1);
+        var tk = document.createElement("div"); tk.className = "tick"; tk.style.left = pct + "%";
+        var lb = document.createElement("div"); lb.className = "tlab"; lb.style.left = pct + "%"; lb.textContent = y;
+        prog.appendChild(tk); prog.appendChild(lb);
+      });
+
+      // caption groups
+      var capsEl = document.getElementById("caps");
+      CAPS.forEach(function (c, idx) {
+        var g = document.createElement("div");
+        g.className = "cg"; g.id = "cg" + idx;
+        g.innerHTML = "<span>" + c.t + "</span>";
+        capsEl.appendChild(g);
+      });
+
+      /* ===================== TIMELINE ===================== */
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      SCENES.forEach(function (sc, n) {
+        var T = sc.start;
+        var panel = "#p" + sc.i;
+
+        // crossfade in (scene 1 already visible -> just clear blur subtly)
+        if (n === 0) {
+          tl.fromTo(panel, { opacity: 1, filter: "blur(10px)" },
+            { opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power2.out" }, 0);
+        } else {
+          tl.set(panel, { visibility: "visible" }, T - 0.6);
+          // exit previous
+          var prev = "#p" + SCENES[n - 1].i;
+          tl.to(prev, { opacity: 0, filter: "blur(14px)", duration: 0.55, ease: "power2.in" }, T - 0.55);
+          tl.set(prev, { visibility: "hidden" }, T + 0.02);
+          // enter current
+          tl.fromTo(panel, { opacity: 0, filter: "blur(16px)" },
+            { opacity: 1, filter: "blur(0px)", duration: 0.62, ease: "power3.out" }, T - 0.1);
+        }
+
+        // Ken Burns on the image (single transform tween)
+        var kb = (sc.i % 2 === 0)
+          ? { from: { scale: 1.12 }, to: { scale: 1.02 } }   // slow pull-back
+          : { from: { scale: 1.02 }, to: { scale: 1.13 } };  // slow push-in
+        tl.fromTo("#img" + sc.i, kb.from,
+          { scale: kb.to.scale, duration: sc.dur + 0.6, ease: "none" }, T - 0.1);
+
+        // inner entrances — varied per scene
+        var eases = [
+          ["power3.out", "expo.out", "power2.out", "back.out(1.6)"],
+          ["expo.out", "power2.out", "power4.out", "power2.out"],
+          ["power2.out", "back.out(1.5)", "expo.out", "power3.out"]
+        ][n % 3];
+
+        tl.fromTo("#yt" + sc.i, { opacity: 0, y: -14, scale: 0.9 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: eases[3] }, T + 0.15);
+        tl.fromTo("#er" + sc.i, { opacity: 0, x: -34 },
+          { opacity: 1, x: 0, duration: 0.55, ease: eases[1] }, T + 0.28);
+        if (sc.i % 2 === 1) {
+          tl.fromTo("#hd" + sc.i, { opacity: 0, y: 48 },
+            { opacity: 1, y: 0, duration: 0.72, ease: eases[0] }, T + 0.34);
+        } else {
+          tl.fromTo("#hd" + sc.i, { opacity: 0, scale: 0.86, letterSpacing: "8px" },
+            { opacity: 1, scale: 1, letterSpacing: "-1px", duration: 0.8, ease: eases[0] }, T + 0.34);
+        }
+        tl.fromTo("#sb" + sc.i, { opacity: 0, y: 26 },
+          { opacity: 1, y: 0, duration: 0.6, ease: eases[2] }, T + 0.5);
+        tl.fromTo("#ab" + sc.i, { scaleX: 0 },
+          { scaleX: 1, duration: Math.min(sc.dur - 1.2, 6), ease: "power1.inOut" }, T + 0.4);
+
+        // HUD updates at scene start
+        var label = ("0" + sc.i).slice(-2);
+        tl.set("#ctr", { textContent: label }, T);
+        tl.to("#pdot", { left: DOTPOS[n] + "%", duration: 0.7, ease: "power2.inOut" }, T);
+        tl.to("#pfill", { width: DOTPOS[n] + "%", duration: 0.7, ease: "power2.inOut" }, T);
+      });
+
+      // last panel resolve (final scene fade is allowed)
+      var lastP = "#p" + SCENES[SCENES.length - 1].i;
+      tl.to(lastP, { opacity: 0, filter: "blur(10px)", duration: 0.8, ease: "power2.in" }, TOTAL - 0.9);
+
+      /* ---------- captions ---------- */
+      CAPS.forEach(function (c, idx) {
+        var el = "#cg" + idx;
+        tl.set(el, { visibility: "visible" }, c.s - 0.05);
+        tl.fromTo(el, { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, c.s);
+        tl.to(el, { opacity: 0, y: -8, duration: 0.18, ease: "power2.in" }, c.e - 0.18);
+        tl.set(el, { opacity: 0, visibility: "hidden" }, c.e);
+      });
+
+      // self-lint: ensure each caption is hidden after its end
+      CAPS.forEach(function (c, idx) {
+        var el = document.getElementById("cg" + idx);
+        tl.seek(c.e + 0.01);
+        var cs = window.getComputedStyle(el);
+        if (cs.opacity !== "0" && cs.visibility !== "hidden") {
+          console.warn("[caption-lint] group " + idx + " still visible at t=" + (c.e + 0.01).toFixed(2));
+        }
+      });
+      tl.seek(0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+flowchart LR
+    subgraph L1 ["L1 规则压缩"]
+        R1["原始 tool_result"] --> R2["提取关键字段"]
+    end
+
+    subgraph L2 ["L2 单轮 LLM 压缩"]
+        T1["多步 Trace"] --> T2{"条数 >= 阈值?"}
+        T2 -->|是| T3["LLM 摘要"]
+        T2 -->|否| T4["保留原始"]
+    end
+
+    subgraph L3 ["L3 跨轮增量摘要"]
+        S1["全部消息"] --> S2{"token > 阈值?"}
+        S2 -->|是| S3["增量摘要\n保留最近 N 轮"]
+        S2 -->|否| S4["保留原始"]
+    end
+
+    L1 --> L2 --> L3

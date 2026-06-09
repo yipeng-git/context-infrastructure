@@ -1,0 +1,13 @@
+flowchart TD
+    U["用户消息"] --> SA["Session 追加"]
+    SA --> RUN["Runtime.Run"]
+    RUN --> REPLY["回复 + Trace"]
+    REPLY --> SB["Session 持久化\n多 Part 存储"]
+    SB --> CMP["异步压缩"]
+
+    RUN -.->|"工具写入"| MW["Memory.Write\nUser / Session scope"]
+    MW --> KV[("KV Store")]
+
+    NEXT["下一轮"] --> SNAP["Memory.LoadSnapshot"]
+    SNAP --> KV
+    SNAP --> DYN["注入 Prompt M3"]

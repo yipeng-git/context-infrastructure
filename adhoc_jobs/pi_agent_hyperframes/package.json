@@ -1,0 +1,11 @@
+{
+  "name": "pi-agent-hyperframes",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx hyperframes preview",
+    "check": "npx hyperframes lint && npx hyperframes validate && npx hyperframes inspect",
+    "render": "npx hyperframes render",
+    "publish": "npx hyperframes publish"
+  }
+}

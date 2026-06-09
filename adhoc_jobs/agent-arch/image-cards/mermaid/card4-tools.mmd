@@ -1,0 +1,11 @@
+flowchart TD
+    subgraph reg ["工具注册（按来源分组）"]
+        direction LR
+        A["组 A\n业务能力"]
+        B["组 B\n上下文读写"]
+        C["组 C\n动态注入"]
+    end
+
+    A & B & C --> R["Tool Registry\n统一注册表"]
+    R --> P["Phase Filter\n按当前阶段裁剪"]
+    P --> T["当前可用工具集"]

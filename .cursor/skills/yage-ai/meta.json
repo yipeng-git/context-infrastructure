@@ -1,0 +1,203 @@
+{
+  "name": "yage.ai / grapeot",
+  "display_name": "yage.ai / grapeot",
+  "character": "celebrity",
+  "research_profile": "budget-unfriendly",
+  "classification": {
+    "language": "zh-CN",
+    "tags": [
+      "AI",
+      "Agentic AI",
+      "系统思考",
+      "Context Infrastructure",
+      "可观测性",
+      "成本结构",
+      "摄影天文",
+      "工程方法论",
+      "中文博客"
+    ],
+    "gallery_category": "Celebrity"
+  },
+  "profile": {
+    "identity": "中文技术博客作者 / AI-native 方法论实践者",
+    "occupation": "Applied Scientist / builder / blogger",
+    "known_for": "yage.ai 中文博客、Agentic AI 方法论、context infrastructure、摄影与硬件实验"
+  },
+  "summary": "基于 yage.ai 229 篇中文博客全文 deep article cards 重新蒸馏的 budget-unfriendly 思考型 skill，聚焦 context infrastructure、可观测性、成本结构、闭环工作流、工程实验和高解析度决策。",
+  "source_context": {
+    "domain": "public Chinese blog writings",
+    "relationship_to_user": "public creator / thinker",
+    "is_real_person": true,
+    "is_public_figure": true,
+    "is_fictional": false,
+    "source_note": "只使用 yage.ai 中文博客；英文翻译、站外评论、知乎、微信公众号、百度百科和内容农场均未纳入。逐篇全文卡片来自 /tmp/yage_ai_dot_skill/chinese_corpus.jsonl。"
+  },
+  "knowledge_sources": [
+    {
+      "type": "primary_blog_corpus",
+      "description": "229 篇 yage.ai 中文博客全文",
+      "path": "knowledge/research/article_cards/deep_cards/all_cards_normalized.jsonl"
+    },
+    {
+      "type": "research_audit",
+      "description": "budget-unfriendly research audit PASS",
+      "path": "knowledge/research/reviews/research_audit.md"
+    },
+    {
+      "type": "synthesis",
+      "description": "triple-gate mental model synthesis",
+      "path": "knowledge/research/reviews/synthesis.md"
+    }
+  ],
+  "artifacts": {
+    "combined_skill": "SKILL.md",
+    "work_skill": "work_skill.md",
+    "persona_skill": "persona_skill.md",
+    "work_doc": "work.md",
+    "persona_doc": "persona.md",
+    "manifest": "manifest.json",
+    "combined_name": "yage-ai",
+    "work_name": "yage-ai-work",
+    "persona_name": "yage-ai-persona",
+    "combined_command": "yage-ai",
+    "work_command": "yage-ai-work",
+    "persona_command": "yage-ai-persona"
+  },
+  "type": "celebrity",
+  "lifecycle": {
+    "status": "active",
+    "created_at": "2026-05-05T02:09:18.388364+00:00",
+    "updated_at": "2026-05-05T02:09:18.388364+00:00",
+    "version": "v1"
+  },
+  "generation": {
+    "engine": "dot-skill",
+    "character": "celebrity",
+    "research_profile": "budget-unfriendly",
+    "preset": "dot.celebrity.v1",
+    "prompt_bundle": {
+      "preset": "dot.celebrity.v1",
+      "intake": "prompts/celebrity/intake.md",
+      "research": "prompts/celebrity/research.md",
+      "work_analyzer": "prompts/work_analyzer.md",
+      "persona_analyzer": "prompts/celebrity/persona_analyzer.md",
+      "work_builder": "prompts/work_builder.md",
+      "persona_builder": "prompts/celebrity/persona_builder.md",
+      "merger": "prompts/celebrity/merger.md",
+      "correction_handler": "prompts/correction_handler.md"
+    },
+    "research_profile_bundle": {
+      "research": "prompts/celebrity/budget_unfriendly/research.md",
+      "audit": "prompts/celebrity/budget_unfriendly/audit.md",
+      "synthesis": "prompts/celebrity/budget_unfriendly/synthesis.md",
+      "validation": "prompts/celebrity/budget_unfriendly/validation.md",
+      "persona_analyzer": "prompts/celebrity/budget_unfriendly/persona_analyzer.md",
+      "persona_builder": "prompts/celebrity/budget_unfriendly/persona_builder.md"
+    },
+    "research_profile_references": [
+      "references/celebrity_budget_unfriendly_framework.md",
+      "references/celebrity_budget_unfriendly_template.md"
+    ],
+    "merge_strategy": "deep",
+    "quality_profile": "budget-unfriendly",
+    "knowledge_dirs": [
+      "docs",
+      "messages",
+      "emails",
+      "research/raw",
+      "research/merged",
+      "research/reviews",
+      "transcripts",
+      "subtitles"
+    ],
+    "storage_root": "skills/celebrity",
+    "research_tools": {
+      "subtitle_downloader": "tools/research/download_subtitles.sh",
+      "subtitle_cleaner": "tools/research/srt_to_transcript.py",
+      "research_merger": "tools/research/merge_research.py",
+      "quality_check": "tools/research/quality_check.py"
+    },
+    "created_from": [
+      {
+        "type": "primary_blog_corpus",
+        "description": "229 篇 yage.ai 中文博客全文",
+        "path": "knowledge/research/article_cards/deep_cards/all_cards_normalized.jsonl"
+      },
+      {
+        "type": "research_audit",
+        "description": "budget-unfriendly research audit PASS",
+        "path": "knowledge/research/reviews/research_audit.md"
+      },
+      {
+        "type": "synthesis",
+        "description": "triple-gate mental model synthesis",
+        "path": "knowledge/research/reviews/synthesis.md"
+      }
+    ],
+    "corrections_count": 0
+  },
+  "engine": {
+    "name": "dot-skill",
+    "kind": "meta-skill",
+    "character": "celebrity",
+    "research_profile": "budget-unfriendly",
+    "preset": "dot.celebrity.v1",
+    "prompt_bundle": {
+      "preset": "dot.celebrity.v1",
+      "intake": "prompts/celebrity/intake.md",
+      "research": "prompts/celebrity/research.md",
+      "work_analyzer": "prompts/work_analyzer.md",
+      "persona_analyzer": "prompts/celebrity/persona_analyzer.md",
+      "work_builder": "prompts/work_builder.md",
+      "persona_builder": "prompts/celebrity/persona_builder.md",
+      "merger": "prompts/celebrity/merger.md",
+      "correction_handler": "prompts/correction_handler.md"
+    },
+    "research_profile_bundle": {
+      "research": "prompts/celebrity/budget_unfriendly/research.md",
+      "audit": "prompts/celebrity/budget_unfriendly/audit.md",
+      "synthesis": "prompts/celebrity/budget_unfriendly/synthesis.md",
+      "validation": "prompts/celebrity/budget_unfriendly/validation.md",
+      "persona_analyzer": "prompts/celebrity/budget_unfriendly/persona_analyzer.md",
+      "persona_builder": "prompts/celebrity/budget_unfriendly/persona_builder.md"
+    },
+    "research_profile_references": [
+      "references/celebrity_budget_unfriendly_framework.md",
+      "references/celebrity_budget_unfriendly_template.md"
+    ],
+    "merge_strategy": "deep",
+    "quality_profile": "budget-unfriendly",
+    "knowledge_dirs": [
+      "docs",
+      "messages",
+      "emails",
+      "research/raw",
+      "research/merged",
+      "research/reviews",
+      "transcripts",
+      "subtitles"
+    ],
+    "storage_root": "skills/celebrity",
+    "research_tools": {
+      "subtitle_downloader": "tools/research/download_subtitles.sh",
+      "subtitle_cleaner": "tools/research/srt_to_transcript.py",
+      "research_merger": "tools/research/merge_research.py",
+      "quality_check": "tools/research/quality_check.py"
+    }
+  },
+  "schema_version": "3",
+  "slug": "yage-ai",
+  "kind": "meta-skill",
+  "subtype": null,
+  "preset": "dot.celebrity.v1",
+  "id": "meta-skill.celebrity.yage-ai",
+  "compat": {
+    "legacy_command": "/create-icon",
+    "legacy_storage_root": "skills/celebrity",
+    "legacy_type": "celebrity"
+  },
+  "created_at": "2026-05-05T02:09:18.388364+00:00",
+  "updated_at": "2026-05-05T02:09:18.388364+00:00",
+  "version": "v1",
+  "corrections_count": 0
+}

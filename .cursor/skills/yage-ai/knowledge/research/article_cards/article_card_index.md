@@ -1,0 +1,233 @@
+# yage.ai 中文博客全文卡片索引
+
+说明：本索引来自 `/tmp/yage_ai_dot_skill/chinese_corpus.jsonl` 的 229 篇中文博客全文抓取。这里不保存原文段落，只保存每篇文章的元信息和主题信号，用于 budget-unfriendly 研究聚合。
+
+- 2026 | [一行代码的事，Web 为什么做了三十年还没做到](https://yage.ai/web-layout-tradeoff.html) | chars=4575 | signals=AI, Agent, 上下文, 系统, 决策, 工程, 直觉, 数据
+- 2026 | [为什么AI只会说正确的废话，以及怎么把它逼出舒适区](https://yage.ai/context-infrastructure.html) | chars=5139 | signals=AI, Agent, Cursor, Claude, OpenClaw, prompt, context, 上下文
+- 2026 | [用好AI的第一步：停止和AI聊天](https://yage.ai/stop-using-chatgpt.html) | chars=4482 | signals=AI, Agent, Cursor, Claude, 上下文, 成本, 工具, 决策
+- 2026 | [以一个简单任务为例看AI落地的关键决策](https://yage.ai/ai-key-decisions.html) | chars=3943 | signals=AI, Agent, Cursor, prompt, context, 上下文, 成本, 工具
+- 2026 | [OpenClaw 是什么｜AI Agent 聊天工具的原理、价值与局限](https://yage.ai/openclaw.html) | chars=8100 | signals=AI, Agent, Cursor, Claude, OpenClaw, MCP, 上下文, 成本
+- 2026 | [告别教程思维：为什么 AI 教育不应局限于内容创作，而应该引进工程基建](https://yage.ai/ai-builder-space.html) | chars=7189 | signals=AI, Agent, Cursor, Claude, MCP, prompt, context, 成本
+- 2026 | [从过程确定性到结果确定性：AI 时代的另一种安全感](https://yage.ai/result-certainty.html) | chars=7664 | signals=AI, Agent, Cursor, Claude, MCP, prompt, 上下文, 成本
+- 2025 | [使用AI生图助力天文学观测摄影](https://yage.ai/ai-flat-field.html) | chars=4734 | signals=AI, Agent, 上下文, 工具, 工程, 数据, 确定性, 实验
+- 2025 | [我的2025：一个凡人的修仙旅程](https://yage.ai/2025-year-end.html) | chars=7777 | signals=AI, Agent, Cursor, Claude, MCP, 系统, 工具, 工程
+- 2025 | [使用Nano Banana Pro生成整套PPT：疯狂，挑战和工作流](https://yage.ai/nano-banana-pro.html) | chars=5901 | signals=AI, Cursor, prompt, context, 成本, 系统, 工具, 工程
+- 2025 | [一次性软件与被压缩的现实：AI Native 的本质是策略重构](https://yage.ai/ai-native-cost-structure.html) | chars=5521 | signals=AI, Agent, Cursor, Claude, 上下文, 成本, 系统, 工具
+- 2025 | [超越DRY：AI原生软件工程的思考](https://yage.ai/ai-software-engineering.html) | chars=4978 | signals=AI, Agent, Cursor, Claude, MCP, prompt, 上下文, 成本
+- 2025 | [用一次摸鱼经历详解AI管理实战](https://yage.ai/ai-management-3.html) | chars=6532 | signals=AI, Cursor, Claude, prompt, 上下文, 成本, 工具, 决策
+- 2025 | [怎么让AI不偷懒：为Codex构建系统性的Wide Research能力](https://yage.ai/wide-research.html) | chars=6965 | signals=AI, Agent, Cursor, Claude, MCP, prompt, context, 上下文
+- 2025 | [电车油车的底盘操控之争和技术路线](https://yage.ai/car-chassis.html) | chars=6102 | signals=成本, 系统, 工具, 决策, 工程, 直觉, 框架, 反馈
+- 2025 | [为什么OpenAI Apps SDK对MCP的支持反而是MCP的危机](https://yage.ai/mcp-revisited.html) | chars=5343 | signals=AI, Agent, MCP, context, 成本, 系统, 工具, 决策
+- 2025 | [管理AI：你职业生涯中最重要的一次晋升](https://yage.ai/ai-management-2.html) | chars=5189 | signals=AI, 上下文, 系统, 工具, 决策, 工程, 数据, 自动化
+- 2025 | [当AI不work：我如何最终实现自动化财务决算](https://yage.ai/ai-finance.html) | chars=4447 | signals=AI, Agent, prompt, context, 系统, 工具, 工程, 数据
+- 2025 | [超越聊天框简评GPT-5](https://yage.ai/gpt-5.html) | chars=2174 | signals=AI, Cursor, Claude, prompt, 工具, 工程, 实验, 状态
+- 2025 | [当AI陷入鬼打墙：一次关于协作策略的复盘](https://yage.ai/ai-unlearn.html) | chars=1992 | signals=AI, Agent, Cursor, Claude, 工程, 直觉, 数据, 确定性
+- 2025 | [Kimi K2：超越聊天框的深度评测](https://yage.ai/kimi-k2.html) | chars=6082 | signals=AI, Agent, Cursor, Claude, prompt, context, 上下文, 成本
+- 2025 | [我的赛博长生之路：一场拓展生命边界的AI实验](https://yage.ai/ai-eternity.html) | chars=6239 | signals=AI, Agent, prompt, context, 上下文, 成本, 系统, 工具
+- 2025 | [后智慧时代生存指南：关于未来的一些疯狂随想](https://yage.ai/ai-society.html) | chars=4175 | signals=AI, 成本, 系统, 直觉, 数据, 认知, 状态, 时间
+- 2025 | [大航海时代，别再跟AI比划桨了](https://yage.ai/ai-paddler.html) | chars=1637 | signals=AI, 上下文, 系统, 决策, 工程, 直觉, 数据
+- 2025 | [用三个笨办法将千万字的《凡人修仙传》炼成一个知识图谱](https://yage.ai/fanren.html) | chars=4959 | signals=AI, prompt, 上下文, 成本, 系统, 工具, 工程, 直觉
+- 2025 | [从开环到闭环，重新理解学习](https://yage.ai/closed-loop-learnings.html) | chars=5250 | signals=成本, 系统, 工具, 工程, 数据, 确定性, 认知, 反馈
+- 2025 | [遥遥领先和Magnificence in Motion：也谈尊界和迈巴赫](https://yage.ai/s800-maybach.html) | chars=2067 | signals=AI, 系统, 认知, 学习
+- 2025 | [模型变强了，体验却没变：AI产品的错位](https://yage.ai/ai-products.html) | chars=8140 | signals=AI, Cursor, Claude, MCP, prompt, context, 上下文, 成本
+- 2025 | [AI，水培，吹泡泡和咖啡](https://yage.ai/water-quality.html) | chars=3404 | signals=AI, Agent, 系统, 工具, 数据, 认知, 实验, 反馈
+- 2025 | [上一篇文章写崩了，但不是AI的锅](https://yage.ai/life-api-part4-followup.html) | chars=3909 | signals=AI, Agent, prompt, context, 系统, 决策, 工程, 直觉
+- 2025 | [一千次失败之后，它选中了你看到的那一个](https://yage.ai/ai-creativity.html) | chars=2699 | signals=AI, prompt, 成本, 系统, 决策, 直觉, 框架, 实验
+- 2025 | [你不是在布置任务，而是在给 AI 搭一个能变聪明的世界](https://yage.ai/life-api-part4.html) | chars=4403 | signals=AI, Claude, prompt, context, 上下文, 系统, 数据, 工作流
+- 2025 | [真正决定你能不能成事的，不是努力](https://yage.ai/fate.html) | chars=6343 | signals=成本, 系统, 工程, 直觉, 确定性, 认知, 实验, 反馈
+- 2025 | [AI 伴我三省吾身：我的 AI-Centric 实验第三章](https://yage.ai/life-api-part3.html) | chars=2847 | signals=AI, prompt, 上下文, 成本, 工具, 数据, 自动化, 框架
+- 2025 | [从现实 API到认知伙伴：我的 AI-Centric 实验第二章](https://yage.ai/life-api-part2.html) | chars=7438 | signals=AI, Agent, 上下文, 成本, 系统, 工具, 决策, 直觉
+- 2025 | [当现实世界成为AI可以调用的API](https://yage.ai/life-api.html) | chars=4850 | signals=AI, Agent, context, 上下文, 成本, 系统, 决策, 数据
+- 2025 | [不是我更偏爱o3，是它开始真的主动干活了](https://yage.ai/o3.html) | chars=4685 | signals=AI, Agent, prompt, 工具, 决策, 数据, 反馈, 验证
+- 2025 | [你不需要懂金融，也可以用 AI 拆开结构化票据的黑盒](https://yage.ai/structured-notes.html) | chars=5728 | signals=AI, Cursor, prompt, 成本, 系统, 工具, 决策, 工程
+- 2025 | [别再问AI会不会取代你，问你能不能带好AI](https://yage.ai/agentic-ai-202504.html) | chars=6525 | signals=AI, Agent, Cursor, prompt, context, 上下文, 系统, 工具
+- 2025 | [我们让AI读完三年微信群聊记录，它写了一本出人意料的小书](https://yage.ai/ai-book.html) | chars=4738 | signals=AI, Agent, prompt, context, 上下文, 成本, 系统, 工具
+- 2025 | [玩具还是生产力工具？四个步骤实现GPT文生图商业级视觉表达](https://yage.ai/gpt-image.html) | chars=5879 | signals=AI, Agent, Cursor, prompt, 系统, 工具, 框架, 认知
+- 2025 | [统一工具协议的诱惑：MCP背后的商业与技术博弈](https://yage.ai/mcp.html) | chars=4655 | signals=AI, Agent, Cursor, Claude, MCP, prompt, context, 系统
+- 2025 | [中年男人换车感想](https://yage.ai/new-car.html) | chars=3364 | signals=AI, 工具, 决策, 直觉, 摄影, 时间
+- 2025 | [从上下文失忆到文档驱动开发：突破Agentic AI的项目规模陷阱](https://yage.ai/agentic-memory.html) | chars=4799 | signals=AI, Agent, Cursor, prompt, context, 上下文, 系统, 工具
+- 2025 | [Manus爆火的背后，Agentic AI产品如何构筑持久的竞争优势？](https://yage.ai/manus.html) | chars=5491 | signals=AI, Agent, Cursor, context, 系统, 工具, 决策, 工程
+- 2025 | [被低估的Claude Code：AI Native软件开发的关键拼图](https://yage.ai/claude-code.html) | chars=4394 | signals=AI, Agent, Cursor, Claude, MCP, prompt, context, 系统
+- 2025 | [用数学找到近20年间的X星连珠](https://yage.ai/planet-alignment.html) | chars=2639 | signals=直觉, 天文, 时间
+- 2025 | [从数据挖掘到认知炼金：用OpenAI Deep Research（模拟）购车决策全流程](https://yage.ai/deep-research-car-buying.html) | chars=2999 | signals=AI, 系统, 工具, 决策, 数据, 自动化, 认知, 实验
+- 2025 | [为什么学习Agentic AI的第一步是忘记所有框架？](https://yage.ai/why-forget-all-frameworks.html) | chars=3738 | signals=AI, Agent, Cursor, prompt, 成本, 系统, 工具, 工程
+- 2025 | [DeepSeek r1使用随感](https://yage.ai/deepseek-r1.html) | chars=5546 | signals=AI, Agent, Cursor, Claude, prompt, 成本, 工程, 直觉
+- 2025 | [从全能医院到智慧分诊：用医院作比喻理解 DeepSeek 的模型进化](https://yage.ai/deepseek-hospital.html) | chars=5424 | signals=成本, 系统, 工程, 直觉, 框架, 认知, 实验, 状态
+- 2025 | [当AI变成你的下属：技术人必须跨越的三道管理陷阱](https://yage.ai/ai-management.html) | chars=4117 | signals=AI, Cursor, context, 上下文, 系统, 决策, 工程, 数据
+- 2025 | [用Multi-Agent让Cursor智能程度再上台阶](https://yage.ai/multi-agent.html) | chars=4076 | signals=AI, Agent, Cursor, Claude, prompt, context, 上下文, 系统
+- 2025 | [对From Users to Builders AI课程的反思](https://yage.ai/reflection-ai-course.html) | chars=2325 | signals=AI, Agent, Cursor, 工具, 决策, 自动化, 框架, 认知
+- 2025 | [以ZWO为例入门漏斗分析](https://yage.ai/zwo-funnel-analysis.html) | chars=5619 | signals=AI, 成本, 系统, 决策, 数据, 框架, 验证, 摄影
+- 2025 | [Agentic AI的鸡肋危机：如何破解落地难题？](https://yage.ai/agentic-ai-crisis.html) | chars=7901 | signals=AI, Agent, Cursor, Claude, prompt, 上下文, 成本, 工具
+- 2024 | [200美元拜个大哥：我为什么续订了o1 Pro](https://yage.ai/o1-pro.html) | chars=1633 | signals=AI, Cursor, Claude, prompt, 系统, 工具, 数据, 框架
+- 2024 | [从琐碎日志到深刻反思：AI字字珠玑的2024年终盘点](https://yage.ai/2024-year-end.html) | chars=6543 | signals=AI, Agent, Claude, 系统, 工具, 决策, 工程, 数据
+- 2024 | [从提示词到微调：让AI更像"我"](https://yage.ai/finetuning.html) | chars=8456 | signals=AI, Agent, Cursor, Claude, prompt, context, 成本, 工具
+- 2024 | [[Agentic AI] 使用Cursor作为AI的通用入口](https://yage.ai/cursor-ai-entry.html) | chars=4573 | signals=AI, Agent, Cursor, Claude, MCP, prompt, 系统, 工具
+- 2024 | [[Agentic AI] 搏一搏，$20变$500：一小时魔改Cursor变身Devin](https://yage.ai/cursor-to-devin.html) | chars=5814 | signals=AI, Agent, Cursor, Claude, prompt, 系统, 工具, 决策
+- 2024 | [[Agentic AI] 从智者到行者——Agentic AI的范式革命与技术架构](https://yage.ai/agentic-ai.html) | chars=5272 | signals=AI, Agent, Cursor, Claude, MCP, prompt, context, 系统
+- 2024 | [[Agentic AI] Devin和Agent Cursor使用体验对比](https://yage.ai/devin-vs-agent-cursor.html) | chars=4334 | signals=AI, Agent, Cursor, prompt, 系统, 工具, 工程, 数据
+- 2024 | [重拾开源平台OpenWebUI的惊喜](https://yage.ai/open-webui.html) | chars=2038 | signals=AI, Agent, Claude, prompt, context, 系统, 工具, 时间
+- 2024 | [受灾群众的自我修养——如何安然度过几天的断电断网](https://yage.ai/power-outage-prep.html) | chars=3205 | signals=系统, 状态, 摄影, 时间
+- 2024 | [闲聊3D打印与激光雕刻技术的现状、挑战与市场困境](https://yage.ai/3d-print-laser-cutting.html) | chars=8375 | signals=系统, 工具, 自动化, 框架, 工作流, 时间, 管理
+- 2024 | [鸭哥为什么精力这么充沛](https://yage.ai/yage-hobby-nb.html) | chars=1841 | signals=AI, 系统, 直觉, 实验, 摄影, 时间
+- 2024 | [使用GPT实时语音API实现零延时AI辅助写作](https://yage.ai/realtime-gpt.html) | chars=6420 | signals=AI, Agent, Cursor, 成本, 系统, 工具, 工程, 数据
+- 2024 | [纽约路窄车位小为什么大家反而开大SUV——十年后重读纽约](https://yage.ai/nyc-revisited.html) | chars=2144 | signals=AI, 认知, 时间
+- 2024 | [通过Prompt Engineering提升对人类求助的效果](https://yage.ai/improving-help-responses-through-prompt-engineering.html) | chars=1839 | signals=AI, prompt, 实验, 时间
+- 2024 | [AssemblyAI语音识别API试用感受](https://yage.ai/assemblyai-speech-recognition-api-review.html) | chars=1472 | signals=AI, Claude, 系统, 工具, 工程, 数据, 时间
+- 2024 | [使用Builder's Mindset重定义AI工具](https://yage.ai/builders-mindset.html) | chars=1301 | signals=AI, Claude, 工具, 时间, 管理
+- 2024 | [从历史的角度看基础大模型基础在何处](https://yage.ai/foundation-models.html) | chars=3164 | signals=AI, context, 上下文, 工程, 数据, 学习, 管理
+- 2024 | [退订ChatGPT后，我选择了Poe](https://yage.ai/poe.html) | chars=1292 | signals=AI, Claude, prompt, 上下文, 时间, 管理
+- 2024 | [DJI Pocket 3上手体验](https://yage.ai/dji-pocket-3-first-impression.html) | chars=2516 | signals=实验, 摄影, 时间
+- 2024 | [华山派剑宗气宗实力错位现象：一个多维度的学术探析](https://yage.ai/ai-jinyong-paper.html) | chars=14492 | signals=AI, Claude, 上下文, 系统, 工具, 数据, 确定性, 框架
+- 2024 | [5分钟给全天相机加上云量识别功能](https://yage.ai/cloud-coverage-ai.html) | chars=2780 | signals=AI, Agent, 成本, 系统, 数据, 自动化, 验证, 摄影
+- 2024 | [关于AI知识引擎的随想](https://yage.ai/ai-knowledge-engine.html) | chars=1938 | signals=AI, prompt, context, 决策, 数据, 时间, 管理
+- 2024 | [使用AI速读视频的技术收获](https://yage.ai/video-transcribe.html) | chars=4606 | signals=AI, Claude, prompt, context, 工具, 数据, 反馈, 接口
+- 2024 | [从微信群菜鸡互啄和AI代替人类工作看我们思考时到底应该追求什么](https://yage.ai/correctness-is-meaningless.html) | chars=6262 | signals=AI, 系统, 工具, 工程, 数据, 确定性, 实验, 验证
+- 2024 | [视频信息密度那么低，为什么大家都在拍视频？](https://yage.ai/writing-and-video.html) | chars=1204 | signals=工具, 时间, 学习
+- 2024 | [从面向对象到面向注释——如何管理AI来辅助编程](https://yage.ai/ai-comment-oriented-programming.html) | chars=4152 | signals=AI, Claude, prompt, context, 系统, 工具, 决策, 工程
+- 2024 | [何时以及如何不使用AI工作](https://yage.ai/ai-writing-limit.html) | chars=4198 | signals=AI, 实验, 时间
+- 2024 | [高效Prompt Engineering指南](https://yage.ai/prompt-engineering-guide.html) | chars=4061 | signals=AI, Agent, prompt, context, 上下文, 系统, 直觉, 数据
+- 2024 | [人工智能对于IT领域的深远影响](https://yage.ai/ai-it-impact.html) | chars=2999 | signals=AI, 系统, 工具, 数据, 自动化, 实验, 时间, 学习
+- 2024 | [将AI接入机器人系统来影响世界](https://yage.ai/ai-robot.html) | chars=4746 | signals=AI, Agent, prompt, 上下文, 成本, 系统, 决策, 工程
+- 2024 | [一些关于天文摄影自动对焦算法的思考和尝试](https://yage.ai/auto-focus.html) | chars=2357 | signals=AI, 系统, 决策, 数据, 实验, 信噪比, 摄影, 天文
+- 2024 | [Apple Vision Pro深度使用体验](https://yage.ai/apple-vision-pro-deep-review.html) | chars=7257 | signals=AI, 系统, 工具, 决策, 直觉, 数据, 工作流, 反馈
+- 2024 | [压榨AI写码指南——如何在机器人革命中第一个被杀](https://yage.ai/ai-coding.html) | chars=5454 | signals=AI, Agent, prompt, 上下文, 成本, 系统, 工具, 决策
+- 2023 | [咖啡器材从观望到破产（二）——意式咖啡的工作流](https://yage.ai/espresso-workstream.html) | chars=2375 | signals=工具, 实验, 工作流, 时间
+- 2023 | [码农面试中的Coding Questions](https://yage.ai/coding-questions.html) | chars=2670 | signals=AI, 系统, 决策, 工程, 数据, 框架, 时间, 学习
+- 2023 | [码农面试中的Behavior Questions](https://yage.ai/behavior-questions.html) | chars=6428 | signals=AI, 成本, 系统, 决策, 工程, 数据, 确定性, 实验
+- 2023 | [120fps视频工作流的一些探索](https://yage.ai/120fps.html) | chars=2043 | signals=工具, 实验, 工作流, 接口, 硬件, 时间, 管理
+- 2023 | [咖啡器材从观望到破产（一）—— 磨豆机的技术指标](https://yage.ai/grinder-tech-specs.html) | chars=3356 | signals=AI, Agent, 系统, 实验, 天文, 时间
+- 2023 | [自适应光学](https://yage.ai/adaptive-optics.html) | chars=4056 | signals=系统, 工具, 工程, 状态, 天文, 时间, 学习
+- 2023 | [深空摄影器材从观望到破产（五）——控制系统的选择](https://yage.ai/astrophoto-tutorial-5.html) | chars=5181 | signals=AI, Agent, 系统, 工具, 自动化, 工作流, 接口, 摄影
+- 2023 | [深空摄影器材从观望到破产（四）——望远镜的选购](https://yage.ai/astrophoto-tutorial-4.html) | chars=5158 | signals=AI, Agent, 成本, 系统, 工具, 决策, 工程, 信噪比
+- 2023 | [深空摄影器材从观望到破产（三）——天文相机的选购](https://yage.ai/astrophoto-tutorial-3.html) | chars=7014 | signals=AI, Agent, 成本, 系统, 实验, 信噪比, 验证, 摄影
+- 2023 | [深空摄影器材从观望到破产（二）——赤道仪的选购](https://yage.ai/astrophoto-tutorial-2.html) | chars=5659 | signals=AI, Agent, 成本, 系统, 确定性, 摄影, 天文, 时间
+- 2023 | [深空摄影器材从观望到破产（一）——入门指南](https://yage.ai/astrophoto-tutorial-1.html) | chars=7600 | signals=AI, Agent, 系统, 决策, 工程, 数据, 信噪比, 摄影
+- 2023 | [深空摄影器材从观望到破产（零）——引子](https://yage.ai/astrophoto-tutorial-0.html) | chars=1600 | signals=AI, Agent, 系统, 工程, 摄影, 天文, 硬件, 学习
+- 2023 | [两种咖啡试管的对比评测](https://yage.ai/coffee-cellar-comparison.html) | chars=1852 | signals=AI, Agent, 成本, 时间
+- 2023 | [AI最近到底有哪些进展？](https://yage.ai/recent-AI-advancement.html) | chars=1233 | signals=AI, 数据, 学习
+- 2023 | [GPT知识管理工具的第三轮迭代](https://yage.ai/GPT-shortcut.html) | chars=2058 | signals=AI, prompt, 成本, 系统, 工具, 工程, 数据, 工作流
+- 2023 | [被GPT吓死了](https://yage.ai/GPT-scared-me.html) | chars=4259 | signals=AI, Agent, prompt, 成本, 系统, 工程, 数据, 实验
+- 2023 | [GPT语音速记工具的迭代](https://yage.ai/GPT-product-iteration.html) | chars=1320 | signals=prompt, 系统, 工具, 决策, 验证, 时间, 管理
+- 2023 | [GPT对知识管理和交互界面设计的重大变革](https://yage.ai/GPT-knowledge-management.html) | chars=2040 | signals=AI, 系统, 工具, 数据, 接口, 时间, 管理
+- 2023 | [使用GPT4和Whisper API大幅提升写作效率](https://yage.ai/GPT-API-usage-creation.html) | chars=1207 | signals=AI, 框架, 接口, 时间
+- 2023 | [分享两个产品使用体验](https://yage.ai/some-product-thoughts.html) | chars=777 | signals=系统
+- 2023 | [机器学习的系统设计面试](https://yage.ai/ML-system-design-interview.html) | chars=2223 | signals=成本, 系统, 决策, 工程, 数据, 确定性, 时间, 学习
+- 2023 | [Senior IC的一些思考](https://yage.ai/senior-ic-thoughts.html) | chars=2110 | signals=学习
+- 2023 | [人工智能的一些随想](https://yage.ai/AI-thoughts.html) | chars=4174 | signals=AI, Agent, 上下文, 系统, 决策, 数据, 验证, 时间
+- 2022 | [音频碎碎念（十）—— 地狱听音环境实操](https://yage.ai/sound-engineering-10-real-example.html) | chars=2797 | signals=AI, Agent, 系统
+- 2022 | [音频碎碎念（⑨）—— D类放大器](https://yage.ai/sound-engineering-9-class-d-amp.html) | chars=2602 | signals=AI, Agent, 系统, 直觉, 反馈, 状态, 时间, 学习
+- 2022 | [音频碎碎念（八）—— 放大器输出级](https://yage.ai/sound-engineering-8-amp-output-stage.html) | chars=2847 | signals=AI, Agent, 系统, 工程, 框架, 反馈
+- 2022 | [音频碎碎念（七）—— 放大器](https://yage.ai/sound-engineering-7-amplifiers.html) | chars=1970 | signals=AI, Agent, 反馈, 学习
+- 2022 | [音频碎碎念（六）—— 模电](https://yage.ai/sound-engineering-6-analog-circuits.html) | chars=1569 | signals=AI, Agent, 系统, 工程, 反馈
+- 2022 | [音频碎碎念（五）—— 听音环境](https://yage.ai/sound-engineering-5-environment.html) | chars=2250 | signals=AI, Agent, 系统, 工具, 验证
+- 2022 | [音频碎碎念（四）—— 线材的玄学](https://yage.ai/sound-engineering-4-cables.html) | chars=2215 | signals=AI, Agent, 系统, 工程, 实验, 学习
+- 2022 | [音频碎碎念（三）—— 频率的玄学](https://yage.ai/sound-engineering-3-frequency.html) | chars=1709 | signals=AI, Agent
+- 2022 | [音频碎碎念（二）—— 响度的玄学](https://yage.ai/sound-engineering-2-loudness.html) | chars=2595 | signals=AI, Agent, 系统, 实验, 摄影, 时间, 学习
+- 2022 | [音频碎碎念（一）—— HiFi科学派](https://yage.ai/sound-engineering-1-scientific-hifi.html) | chars=2652 | signals=AI, Agent, 系统, 工程, 摄影, 天文, 学习
+- 2022 | [导星误差的系统性改进及AM5赤道仪评测](https://yage.ai/zwo-am5-review.html) | chars=7389 | signals=AI, Agent, 系统, 工具, 工程, 数据, 实验, 状态
+- 2022 | [使用血糖作为减肥的间接指标](https://yage.ai/blood-sugar-weight-management.html) | chars=1604 | signals=实验, 反馈, 管理
+- 2022 | [北美码农初入职场最好知道的一些事——业界的核心价值观](https://yage.ai/new-employee-suggestions.html) | chars=5091 | signals=AI, 系统, 工具, 决策, 工程, 数据, 自动化, 框架
+- 2022 | [利用简单的线性代数实现精确可控的窄带调色](https://yage.ai/sho-tune.html) | chars=5198 | signals=AI, Agent, 系统, 摄影
+- 2022 | [每个星野摄影师都应该知道的深空摄影小知识](https://yage.ai/star-photography.html) | chars=3350 | signals=AI, Agent, 工具, 自动化, 信噪比, 摄影, 天文, 时间
+- 2022 | [机炮才是无人机的浪漫](https://yage.ai/zwo-on-drone.html) | chars=2570 | signals=AI, Agent, 系统, 接口, 摄影, 天文, 硬件
+- 2022 | [关于System Design Interview的随想](https://yage.ai/system-design-interview.html) | chars=1333 | signals=系统, 决策, 工程, 数据, 时间
+- 2022 | [如何使用佳能EOS VR镜头进行创作——前期手法与后期流程](https://yage.ai/canon-vr-system-how-to-use-cn.html) | chars=3641 | signals=AI, 系统, 工具, 数据, 实验, 工作流, 摄影, 时间
+- 2022 | [佳能VR镜头系统的痛点和解决方法](https://yage.ai/canon-vr-system-pain-points.html) | chars=1517 | signals=AI, 系统, 工具, 工作流
+- 2022 | [使用ZWO相机山寨Leica Monochrom](https://yage.ai/yasselblad.html) | chars=2333 | signals=AI, Agent, 系统, 工程, 数据, 摄影, 天文, 时间
+- 2022 | [鸭阵巡天](https://yage.ai/duck-sky-survey.html) | chars=2331 | signals=AI, Agent, 成本, 数据, 信噪比, 摄影, 天文, 硬件
+- 2022 | [马赛克深空摄影入门进阶](https://yage.ai/astro-mosaic.html) | chars=4580 | signals=AI, Agent, 系统, 工具, 信噪比, 摄影, 天文, 时间
+- 2021 | [如何错误地使用ASI6200MM及其后果](https://yage.ai/6200-wrong-usage.html) | chars=6557 | signals=AI, 系统, 实验, 工作流, 信噪比, 验证, 摄影, 天文
+- 2021 | [如何选镜子来最大化信噪比](https://yage.ai/astrophotography-snr-telescope.html) | chars=2624 | signals=AI, Agent, 系统, 实验, 信噪比, 摄影, 天文
+- 2021 | [如何用小小房找乐子——以及如何调光轴不头秃](https://yage.ai/sharpstar-13028hnt-review.html) | chars=3808 | signals=AI, Agent, 成本, 系统, 实验, 信噪比, 学习
+- 2021 | [偷网指南和一些网络心得](https://yage.ai/network-proejct.html) | chars=3228 | signals=AI, Agent, 系统, 工程, 框架, 硬件, 时间
+- 2021 | [四种不同职业的工作内容和面试标准](https://yage.ai/four-field-interview.html) | chars=2269 | signals=系统, 数据, 实验, 验证, 时间, 学习
+- 2020 | [3D打印入门的常见问题](https://yage.ai/3d-print-faq.html) | chars=2598 | signals=工具, 工程, 时间
+- 2020 | [自制开放智能低成本的监控摄像头](https://yage.ai/esp32-cam-1.html) | chars=4232 | signals=AI, Agent, 成本, 系统, 数据, 实验, 接口, 状态
+- 2020 | [设计,制造,和发射自己的个人卫星](https://yage.ai/picosatellite.html) | chars=2113 | signals=数据, 框架, 状态, 摄影, 天文, 时间, 学习
+- 2020 | [深空摄影的萌新反面指南——前期坑](https://yage.ai/beginners-guide-mistakes-deep-space-photography.html) | chars=4461 | signals=AI, Agent, 工具, 数据, 实验, 验证, 摄影, 时间
+- 2020 | [用大画幅胶片进行广域深空摄影（一）](https://yage.ai/large-format-film-deep-sky-astrophotography-part-1.html) | chars=2427 | signals=AI, Agent, 系统, 数据, 接口, 摄影, 天文, 时间
+- 2020 | [深空摄影的萌新反面指南——器材坑](https://yage.ai/deep-space-photography-beginners-guide-equipment-pitfalls.html) | chars=3424 | signals=AI, Agent, 系统, 信噪比, 摄影, 天文, 学习, 管理
+- 2020 | [一个书包可以装下的深空配置](https://yage.ai/portable-dso-photography-gears.html) | chars=2811 | signals=AI, Agent, 系统, 信噪比, 摄影, 天文, 时间
+- 2020 | [用Leica 50AA实现200nm/像素的分辨率](https://yage.ai/cmos-pixel-macro.html) | chars=2459 | signals=AI, Agent, 时间
+- 2020 | [不同对焦技术的测距精度](https://yage.ai/distance-measurement-with-focusing.html) | chars=11081 | signals=AI, Agent, 系统, 直觉, 数据, 摄影, 时间
+- 2020 | [135系统的分辨率极限（三）—— 与大画幅胶片的角逐](https://yage.ai/resolution-limit-of-135-system-3.html) | chars=2780 | signals=AI, Agent, 成本, 系统, 自动化, 实验, 时间
+- 2020 | [135系统的分辨率极限（二）—— 逼近衍射极限](https://yage.ai/resolution-limit-of-135-system-2.html) | chars=2308 | signals=AI, Agent, 系统, 实验
+- 2020 | [超高精度月球三维模型的制作和渲染（附墙纸下载）](https://yage.ai/nasa-moon-3d-model.html) | chars=2482 | signals=AI, Agent, 数据, 框架, 时间
+- 2020 | [黑白相机可以给我们更准确的颜色吗？（二）](https://yage.ai/black-and-white-photo-colorization-2.html) | chars=1807 | signals=AI, Agent, 工具, 自动化, 摄影, 天文, 时间
+- 2020 | [135系统的分辨率极限 —— CMS 20 II胶片评测](https://yage.ai/resolution-limit-of-135-system.html) | chars=3185 | signals=AI, Agent, 系统, 工程
+- 2020 | [黑白相机可以给我们更准确的颜色吗？（一）](https://yage.ai/black-and-white-photo-colorization.html) | chars=1928 | signals=AI, Agent, 实验, 摄影, 天文
+- 2020 | [16亿像素的柔性静物接图](https://yage.ai/hermes-scarf-photography.html) | chars=1778 | signals=AI, Agent, 工具, 时间
+- 2020 | [寨版纹影摄影](https://yage.ai/schlieren-photography.html) | chars=1584 | signals=AI, Agent, 系统, 实验, 摄影, 时间
+- 2020 | [树莓派上的目标检测智能相机](https://yage.ai/raspberry-pi-object-detection.html) | chars=2453 | signals=AI, Agent, 系统, 数据, 时间
+- 2020 | [冲击10亿像素的单张照片](https://yage.ai/gigapixel-photo.html) | chars=1837 | signals=AI, Agent, 实验
+- 2020 | [Lyn Weber HG-1手动磨豆机简单评测](https://yage.ai/HG-1-coffee-grinder-review.html) | chars=1659 | signals=AI, Agent, 时间
+- 2020 | [乐高拼贴喔卡哇伊阔多](https://yage.ai/lego-mosaic.html) | chars=3134 | signals=AI, Agent, 成本, 系统, 自动化, 实验, 时间
+- 2020 | [反接大画幅广角镜头来实现中大画幅显微镜](https://yage.ai/reverse-lens-extreme-macro.html) | chars=1528 | signals=AI, Agent, 时间
+- 2020 | [全幅与中幅（五）](https://yage.ai/full-frame-and-medium-format-5.html) | chars=1566 | signals=AI, Agent, 系统, 摄影, 时间
+- 2020 | [全幅与中幅（四）](https://yage.ai/full-frame-and-medium-format-4.html) | chars=2479 | signals=AI, Agent, 成本, 系统, 信噪比, 摄影, 时间
+- 2020 | [全幅与中幅（三）](https://yage.ai/full-frame-and-medium-format-3.html) | chars=4057 | signals=AI, Agent, 系统, 直觉, 信噪比
+- 2020 | [全幅与中幅（二）](https://yage.ai/full-frame-and-medium-format-2.html) | chars=3538 | signals=AI, Agent, 成本, 工具, 实验, 摄影, 时间, 学习
+- 2020 | [全幅与中幅（一）](https://yage.ai/full-frame-and-medium-format-1.html) | chars=2645 | signals=AI, Agent, 系统, 数据, 摄影, 时间
+- 2020 | [上流社会的摄影器材](https://yage.ai/alpa-camera.html) | chars=2192 | signals=AI, Agent, 系统, 摄影
+- 2020 | [关于Sony虚标MTF的一些疑问](https://yage.ai/sony-mtf.html) | chars=2102 | signals=AI, Agent, 数据
+- 2020 | [焦距在摄影中的意义和用法](https://yage.ai/focal-length-in-photography.html) | chars=2775 | signals=AI, Agent, 实验, 摄影
+- 2019 | [一些关于反卷积的实验](https://yage.ai/deconv-exp.html) | chars=6230 | signals=AI, Agent, 实验, 摄影
+- 2019 | [穷人的飞思XT——一些关于645d中幅的实验（二）](https://yage.ai/lower-end-phase-one-xt-2.html) | chars=1729 | signals=AI, Agent, 直觉, 实验, 时间
+- 2019 | [穷人的飞思XT——一些关于645d中幅的实验（一）](https://yage.ai/lower-end-phase-one-xt-1.html) | chars=3746 | signals=AI, Agent, 系统, 实验, 接口, 摄影, 时间
+- 2019 | [Timeshare的一些思考](https://yage.ai/thoughts-on-timeshare.html) | chars=5945 | signals=AI, 系统, 时间
+- 2019 | [关于3D打印机箱的一些实验](https://yage.ai/3d-printed-pc-case.html) | chars=1847 | signals=AI, Agent, 实验, 验证, 时间
+- 2019 | [用3D打印将Leica SL镜头转接到天文相机的一些尝试](https://yage.ai/3d-printing-adapter-for-leica-sl-lens-on-astronomy-camera.html) | chars=2580 | signals=AI, Agent, 系统, 实验, 验证, 摄影, 天文, 时间
+- 2019 | [用显微镜物镜做微距镜头拍摄iPhone Retina像素的一些实验](https://yage.ai/microscope-objective-photography.html) | chars=3080 | signals=AI, Agent, 系统, 实验, 接口, 摄影
+- 2019 | [一些关于3D打印大画幅数码接片后背的实验](https://yage.ai/large-format-3d-print-digital-back.html) | chars=3204 | signals=AI, Agent, 成本, 工具, 数据, 实验, 时间, 学习
+- 2019 | [一些关于高分辨率微距和人体艺术的实验](https://yage.ai/macro-photography.html) | chars=1999 | signals=AI, Agent, 系统, 实验, 摄影, 时间, 学习
+- 2019 | [一些关于SSD RAID性能的实验](https://yage.ai/ssd-raid-exp.html) | chars=2376 | signals=AI, Agent, 系统, 数据, 实验, 接口
+- 2019 | [一些关于日轨拍摄的实验](https://yage.ai/sun-track.html) | chars=2755 | signals=AI, Agent, 实验, 状态, 摄影, 天文, 时间
+- 2019 | [百万级别二次元角色识别数据集](https://yage.ai/anime-character-recognition.html) | chars=2183 | signals=AI, Agent, 数据, 框架, 验证
+- 2019 | [开箱即用的动漫头像检测包](https://yage.ai/anime-head-detection.html) | chars=1442 | signals=AI, Agent, 数据, 时间, 学习
+- 2019 | [老法师自制针孔相机的一些尝试](https://yage.ai/pinhole-camera.html) | chars=2531 | signals=AI, Agent, 时间
+- 2019 | [Super Wolf Blood Moon](https://yage.ai/super-wolf-blood-moon.html) | chars=2310 | signals=系统, 信噪比, 摄影, 时间
+- 2019 | [如何拍出几百亿像素的照片](https://yage.ai/gigapixel-methods.html) | chars=2653 | signals=系统, 工具, 数据, 自动化, 信噪比, 摄影, 天文, 时间
+- 2018 | [Drizzle](https://yage.ai/drizzle.html) | chars=2828 | signals=AI, Agent, 系统, 工具, 直觉, 实验, 摄影, 天文
+- 2018 | [如何拍摄银河](https://yage.ai/milky-way-photo.html) | chars=3044 | signals=AI, Agent, 工程, 信噪比, 摄影, 时间
+- 2018 | [正像相纸](https://yage.ai/positive-photo-paper.html) | chars=2497 | signals=AI, Agent, 时间
+- 2018 | [色彩管理](https://yage.ai/color-management.html) | chars=2736 | signals=AI, Agent, 工程, 认知, 管理
+- 2017 | [胶片摄影](https://yage.ai/film-photography.html) | chars=2866 | signals=AI, 成本, 工具, 摄影, 时间, 学习
+- 2017 | [镜头的色差](https://yage.ai/lens-chromatic-aberration.html) | chars=1892 | signals=AI, Agent, 成本, 天文, 学习
+- 2017 | [Full frame and medium fromat cameras](https://yage.ai/full-frame-and-medium-format-cameras.html) | chars=6093 | signals=AI
+- 2017 | [能理解聊天记录的微信机器人(三)](https://yage.ai/wechat-bot-3.html) | chars=1128 | signals=AI, Agent, 数据
+- 2017 | [能理解聊天记录的微信机器人(二)](https://yage.ai/wechat-bot-2.html) | chars=2539 | signals=AI, Agent, 系统, 数据, 时间
+- 2017 | [能理解聊天记录的微信机器人](https://yage.ai/wechat-bot.html) | chars=2541 | signals=AI, Agent, 系统, 数据, 接口, 状态, 智能家居, 时间
+- 2017 | [冬天去阿拉斯加旅游需要知道的东西](https://yage.ai/alaska-winter-advice.html) | chars=3936 | signals=AI, Agent, 工程, 摄影, 时间, 学习
+- 2017 | [关于树莓派测量空气质量的一些实验](https://yage.ai/smart-home-air-quality.html) | chars=3581 | signals=AI, Agent, MCP, 系统, 数据, 自动化, 实验, 接口
+- 2017 | [[智能家居] 家庭灯光的智能控制](https://yage.ai/smart-home-lighting-control.html) | chars=3182 | signals=AI, Agent, 成本, 工具, 框架, 接口, 状态, 智能家居
+- 2016 | [夏威夷茂宜岛游记分享](https://yage.ai/maui-hawaii-travel-diary.html) | chars=3853 | signals=AI, Agent, 成本, 时间, 学习
+- 2016 | [关于粗心](https://yage.ai/about-being-careless.html) | chars=2238 | signals=系统, 决策, 数据, 自动化, 实验, 时间, 学习
+- 2016 | [Food Inc.](https://yage.ai/food-inc.html) | chars=1098 | signals=none
+- 2016 | [为什么电池的电压是1.5V？](https://yage.ai/why-battery-voltage-is-1-5v.html) | chars=1094 | signals=none
+- 2016 | [自己动手改造智能家居生活（二）](https://yage.ai/diy-smart-home-life-part-2.html) | chars=2416 | signals=系统, 自动化, 接口, 智能家居, 时间
+- 2016 | [工作一年随感](https://yage.ai/thoughts-after-one-year-of-work.html) | chars=1713 | signals=AI, 系统, 工程, 直觉, 数据, 自动化, 实验, 验证
+- 2016 | [人为什么需要仪式感？](https://yage.ai/why-do-people-need-a-sense-of-ritual.html) | chars=959 | signals=none
+- 2016 | [Amazon Echo在智能家居中的应用](https://yage.ai/amazon-echo-smart-home-applications.html) | chars=1540 | signals=系统, 智能家居, 时间
+- 2016 | [自己动手改造智能家居生活](https://yage.ai/diy-smart-home-transformation.html) | chars=2535 | signals=AI, Agent, 成本, 系统, 数据, 自动化, 硬件, 智能家居
+- 2016 | [一些关于时间管理的总结](https://yage.ai/some-thoughts-on-time-management.html) | chars=2514 | signals=AI, 系统, 工具, 时间, 管理
+- 2016 | [知乎人脸的总结](https://yage.ai/zhihu-face-recognition-summary.html) | chars=2850 | signals=AI, Agent, 系统, 时间
+- 2016 | [从鸡翅膀谈起——无人机的空气动力学（下）](https://yage.ai/drone-aerodynamics-b.html) | chars=2771 | signals=AI, Agent, 系统, 数据, 状态, 时间
+- 2016 | [从鸡翅膀谈起——无人机的空气动力学（上）](https://yage.ai/drone-aerodynamics-a.html) | chars=6393 | signals=AI, Agent, 直觉, 状态
+- 2015 | [美国留学PhD和Master的选择](https://yage.ai/phd-master-selection.html) | chars=2857 | signals=成本, 系统, 工程, 数据, 认知, 实验, 时间, 管理
+- 2015 | [More Tips about Time Management](https://yage.ai/more-tips-about-time-management.html) | chars=4789 | signals=AI, Agent
+- 2015 | [一些做presentation的小技巧](https://yage.ai/presentation-tips-and-tricks.html) | chars=720 | signals=context
+- 2014 | [中小学生的教育 and Personal Resource Management](https://yage.ai/education-for-primary-and-secondary-students-and-personal-resource-management.html) | chars=2090 | signals=AI, 决策, 时间, 学习
+- 2014 | [First solo!](https://yage.ai/first-solo.html) | chars=2122 | signals=AI, 状态
+- 2014 | [May 17th](https://yage.ai/may-17th.html) | chars=1231 | signals=时间
+- 2013 | [An rm and git accident](https://yage.ai/rm-and-git-accident.html) | chars=2097 | signals=AI
+- 2013 | [Inspiration Fragments](https://yage.ai/inspiration-fragments-20131130.html) | chars=949 | signals=系统, 框架, 状态, 时间, 学习
+- 2013 | [Inspiration Fragments](https://yage.ai/inspiration-fragments-20131011.html) | chars=566 | signals=时间
+- 2013 | [[zz] 博士五年总结](https://yage.ai/five-year-phd-summary.html) | chars=10834 | signals=上下文, 系统, 直觉, 数据, 框架, 实验, 状态, 验证
+- 2013 | [The Lean Launchpad](https://yage.ai/the-lean-launchpad.html) | chars=1319 | signals=工程, 验证, 管理
+- 2012 | [写在夏天的尾巴](https://yage.ai/written-at-the-end-of-summer.html) | chars=2625 | signals=AI, Agent, 决策
+- 2012 | [慢慢来比较快](https://yage.ai/slow-and-steady-wins-the-race.html) | chars=651 | signals=状态, 时间
+- 2012 | [快乐的因素](https://yage.ai/factors-of-happiness.html) | chars=945 | signals=工程, 实验
+- 2012 | [嗯](https://yage.ai/hmm.html) | chars=2024 | signals=AI, Agent, context
+- 2012 | [Downtown重游和开飞机](https://yage.ai/revisiting-downtown-and-flying-plane.html) | chars=1356 | signals=AI, Agent
+- 2012 | [要开始写Alive了吗](https://yage.ai/starting-to-write-alive.html) | chars=1445 | signals=AI, 系统, 时间
+- 2012 | [0708杂想](https://yage.ai/random-thoughts-july-8.html) | chars=2088 | signals=决策, 工程, 实验, 时间, 学习
